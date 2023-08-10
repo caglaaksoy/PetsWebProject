@@ -30,7 +30,7 @@ namespace OwnersProject.WebApi.Controllers
             return Ok();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteOwner(int id)
         {
             var values = _ownerService.TGetByID(id);

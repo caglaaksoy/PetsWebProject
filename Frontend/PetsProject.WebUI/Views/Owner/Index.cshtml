@@ -1,0 +1,28 @@
+﻿@model List<OwnerViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Müşteri Adı</th>
+        <th>Müşteri Soyadı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.OwnerID</th>
+            <td>@item.Name</td>
+            <td>@item.Surname</td>
+            <td><a href="/Owner/DeleteOwner/@item.OwnerID" class="btn mb-1 btn-rounded btn-outline-danger">Sil</a></td>
+            <td><a href="/Owner/UpdateOwner/@item.OwnerID" class="btn mb-1 btn-rounded btn-outline-success">Güncelle</a></td>
+            <td><a href="#" class="btn mb-1 btn-rounded btn-outline-dark">Detaylar</a></td>
+        </tr>
+    }
+</table>
+<a href="/Owner/AddOwner/" class="btn mb-1 btn-rounded btn-outline-info">Yeni Müşteri Gir</a>

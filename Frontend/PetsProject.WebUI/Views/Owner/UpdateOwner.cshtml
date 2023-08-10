@@ -1,0 +1,19 @@
+﻿@model UpdateOwnerViewModel
+@{
+    ViewData["Title"] = "UpdateOwner";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <input type="hidden" asp-for="OwnerID" />
+    <label>Müşteri Adı</label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <br />
+
+    <label>Müşteri Soyadı</label>
+    <input type="text" asp-for="Surname" class="form-control" />
+    <br />
+        
+
+    <button class="btn btn-success">Müşteriyi Güncelle</button>
+</form>
