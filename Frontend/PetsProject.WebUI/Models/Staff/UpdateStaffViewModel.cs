@@ -1,0 +1,10 @@
+﻿namespace PetsProject.WebUI.Models.Staff
+{
+    public class UpdateStaffViewModel
+    {
+        public int StaffId { get; set; }
+        public string Name { get; set; }
+        public string Title { get; set; }
+        public string SocialMedia1 { get; set; }
+    }
+}
