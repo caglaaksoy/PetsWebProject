@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetsProject.DataAccessLayer.Concrete;
 
 namespace PetsProject.DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20230810103128_mig3")]
+    partial class mig3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,9 +39,9 @@ namespace PetsProject.DataAccessLayer.Migrations
                     b.ToTable("Owners");
                 });
 
-            modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Pets", b =>
+            modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Pet", b =>
                 {
-                    b.Property<int>("PetsID")
+                    b.Property<int>("PetID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -59,6 +61,9 @@ namespace PetsProject.DataAccessLayer.Migrations
                     b.Property<int>("OwnerID")
                         .HasColumnType("int");
 
+                    b.Property<string>("OwnerName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PhotoUrl")
                         .HasColumnType("nvarchar(max)");
 
@@ -68,11 +73,11 @@ namespace PetsProject.DataAccessLayer.Migrations
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("PetsID");
+                    b.HasKey("PetID");
 
                     b.HasIndex("OwnerID");
 
-                    b.ToTable("Petss");
+                    b.ToTable("Pets");
                 });
 
             modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Staff", b =>
@@ -96,10 +101,10 @@ namespace PetsProject.DataAccessLayer.Migrations
                     b.ToTable("Staffs");
                 });
 
-            modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Pets", b =>
+            modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Pet", b =>
                 {
                     b.HasOne("PetsProject.EntityLayer.Concrete.Owner", "Owner")
-                        .WithMany("Petss")
+                        .WithMany("Pets")
                         .HasForeignKey("OwnerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -109,7 +114,7 @@ namespace PetsProject.DataAccessLayer.Migrations
 
             modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Owner", b =>
                 {
-                    b.Navigation("Petss");
+                    b.Navigation("Pets");
                 });
 #pragma warning restore 612, 618
         }

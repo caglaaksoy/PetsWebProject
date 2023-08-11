@@ -37,8 +37,8 @@ namespace PetsProject.WebApi
             services.AddScoped<IStaffDal, EfStaffDal>();
             services.AddScoped<IStaffService, StaffManager>();
 
-            services.AddScoped<IPetDal, EfPetDal>();
-            services.AddScoped<IPetService, PetManager>();
+            services.AddScoped<IPetsDal, EfPetsDal>();
+            services.AddScoped<IPetsService, PetsManager>();
 
             services.AddScoped<IOwnerDal, EfOwnerDal>();
             services.AddScoped<IOwnerService, OwnerManager>();

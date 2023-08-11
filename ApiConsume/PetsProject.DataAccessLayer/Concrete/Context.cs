@@ -16,8 +16,8 @@ namespace PetsProject.DataAccessLayer.Concrete
                 "integrated security=true");
         }
 
-        public DbSet<Pet> Pets { get; set; }
         public DbSet<Owner> Owners { get; set; }
         public DbSet<Staff> Staffs { get; set; }
+        public DbSet<Pets> Petss { get; set; }
     }
 }

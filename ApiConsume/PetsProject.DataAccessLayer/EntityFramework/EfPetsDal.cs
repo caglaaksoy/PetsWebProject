@@ -10,12 +10,11 @@ using System.Threading.Tasks;
 
 namespace PetsProject.DataAccessLayer.EntityFramework
 {
-    public class EfPetDal : GenericRepository<Pet>, IPetDal
+    public class EfPetsDal : GenericRepository<Pets>, IPetsDal
     {
-        public EfPetDal(Context context) : base(context)
+        public EfPetsDal(Context context) : base(context)
         {
 
         }
-    
     }
 }

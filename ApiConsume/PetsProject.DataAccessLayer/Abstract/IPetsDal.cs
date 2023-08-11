@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PetsProject.BusinessLayer.Abstract
+namespace PetsProject.DataAccessLayer.Abstract
 {
-    public interface IPetService:IGenericService<Pet>
+    public interface IPetsDal : IGenericDal<Pets>
     {
     }
 }
