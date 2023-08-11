@@ -37,7 +37,6 @@ namespace PetsProject.WebUI.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> AddOwner(AddOwnerViewModel model)
         {

@@ -19,11 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\ApiConsume\PetsProject.DataAccessLayer\PetsProject.DataAccessLayer.csproj" />
     <ProjectReference Include="..\..\ApiConsume\PetsProject.EntityLayer\PetsProject.EntityLayer.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Dtos\" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,42 @@
+﻿@model CreatePetDto
+@{
+    ViewData["Title"] = "AddPet";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <label>Pet Adı</label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <br />
+
+    <label>Pet Foto Url</label>
+    <input type="text" asp-for="PhotoUrl" class="form-control" />
+    <br />
+
+    <label>Pet Yaşı</label>
+    <input type="text" asp-for="Age" class="form-control" />
+    <br />
+
+    <label>Pet Cinsiyet</label>
+    <input type="text" asp-for="Gender" class="form-control" />
+    <br />
+
+    <label>Pet Türü</label>
+    <input type="text" asp-for="Type" class="form-control" />
+    <br />
+
+    <label>Pet DG</label>
+    <input type="text" asp-for="BirthDate" class="form-control" />
+    <br />
+
+    <label>Pet Kayıt Tarihi</label>
+    <input type="text" asp-for="RegisterDate" class="form-control" />
+    <br />
+
+    <label>Pet Sahibi Seçin</label>
+    @Html.DropDownListFor(x => x.OwnerID, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
+   <br />
+
+
+    <button class="btn btn-primary">Peti Ekle</button>
+</form>
