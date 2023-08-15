@@ -5,6 +5,7 @@
 }
 
 <form method="post">
+    <input type="hidden" asp-for="PetsID" />
     <label>Pet Adı</label>
     <input type="text" asp-for="Name" class="form-control" />
     <br />
@@ -34,10 +35,11 @@
     <br />
 
     <label>Pet Sahibi Seçin</label>
-    @Html.DropDownListFor(x => x.OwnerID, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
+    @Html.DropDownListFor(x => x.OwnerID, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })    
     <br />
+  
 
 
-    <button class="btn btn-primary">Peti Güncelle</button>
+    <button class="btn btn-primary">Pet Verilerini Güncelle</button>
 </form>
 

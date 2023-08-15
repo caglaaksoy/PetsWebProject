@@ -1,0 +1,27 @@
+﻿@model List<PetsProject.WebUI.Dtos.FeatureDto.ResultFeatureDto>
+<section class="feature">
+    <div class="container">
+        <div class="row">
+            @if (Model != null)
+            {
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-6">
+
+
+                        <div class="feature-item">
+                            <div class="feature-img">
+                                <img src="~/orgenik-organic-food-html5-template-2022-02-21-23-53-47-utc/orgenik-file/assets/images/icon/lemon.png" alt="" class="img-fluid">
+                            </div>
+                            <div class="feature-content">
+                                <h4>@item.Title</h4>
+                                <p>@item.Explanation</p>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</section>

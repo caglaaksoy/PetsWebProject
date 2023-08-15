@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using PetsProject.DataAccessLayer.Concrete;
 using PetsProject.EntityLayer.Concrete;
 using PetsProject.WebUI.Dtos.OwnerDto;
@@ -19,16 +21,23 @@ namespace PetsProject.WebUI.Controllers
     public class PetsController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private string jsonData;
+        private string target;
 
-        public PetsController(IHttpClientFactory httpClientFactory)
+        public PetsController(IHttpClientFactory httpClientFactory, IConfiguration configuration)
         {
             _httpClientFactory = httpClientFactory;
+            target = configuration["BackendTarget"];
+            if (string.IsNullOrEmpty(target))
+            {
+                throw new Exception("lütfen target değerini girin.");
+            }
         }
 
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:44310/api/Pets");
+            var responseMessage = await client.GetAsync($"{target}/api/Pets");
 
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -41,7 +50,7 @@ namespace PetsProject.WebUI.Controllers
                     Text = x.Name + " " + x.Surname,
                     Value = x.OwnerID.ToString()
                 }).ToList();
-                ViewBag.OwnerValues = ownerValues;
+                ViewBag.v = ownerValues;
 
                 List<PetsViewModel> petsViewModels = pets.Select(pet => new PetsViewModel
                 {
@@ -74,7 +83,7 @@ namespace PetsProject.WebUI.Controllers
                     .Select(owner => new SelectListItem
                     {
                         Text = owner.Name + " " + owner.Surname,
-                        Value = owner.OwnerID.ToString()
+                        Value = owner.OwnerID.ToString(),
                     })
                     .ToList();
 
@@ -88,13 +97,13 @@ namespace PetsProject.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> AddPet(CreatePetDto createPetDto)
         {
-          //  addPetsViewModel.RegisterDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            //  addPetsViewModel.RegisterDate = DateTime.Parse(DateTime.Now.ToShortDateString());
 
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createPetDto);
 
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            await client.PostAsync("https://localhost:44310/api/Pets", stringContent);
+            await client.PostAsync($"{target}/api/Pets", stringContent);
 
             using (var dbContext = new Context()) // Replace with your DbContext class name
             {
@@ -119,7 +128,7 @@ namespace PetsProject.WebUI.Controllers
         public async Task<IActionResult> DeletePet(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync($"https://localhost:44310/api/Pets/{id}");
+            var responseMessage = await client.DeleteAsync($"{target}/api/Pets/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
@@ -130,42 +139,62 @@ namespace PetsProject.WebUI.Controllers
         [HttpGet]
         public async Task<IActionResult> UpdatePet(int id)
         {
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"https://localhost:44310/api/Pets/{id}");
-            if (responseMessage.IsSuccessStatusCode)
+            //var client = _httpClientFactory.CreateClient();
+            //var responseMessage = await client.GetAsync($"{target}/api/Pets/{id}");
+
+            //if (responseMessage.IsSuccessStatusCode)
+            //{
+            //    var jsonData = await responseMessage.Content.ReadAsStringAsync();
+            //    var values = JsonConvert.DeserializeObject<UpdatePetDto>(jsonData);
+            //    return View(values);
+            //}
+            using (var dbContext = new Context()) // Replace with your DbContext class name
             {
-                var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var updatePetDto = JsonConvert.DeserializeObject<UpdatePetDto>(jsonData);
+                List<SelectListItem> ownerValues = dbContext.Owners
+                    .Select(owner => new SelectListItem
+                    {
+                        Text = owner.Name + " " + owner.Surname,
+                        Value = owner.OwnerID.ToString(),
+                    })
+                    .ToList();
 
-                // ViewBag veya ViewData yerine doğrudan model üzerinden veriyi taşıyın
-                return View(updatePetDto);
+                ViewBag.v = ownerValues;
+
             }
-
             return View();
         }
 
+
+
         [HttpPost]
-        public async Task<IActionResult> UpdatePet(UpdatePetDto updatePetDto)
+        public async Task<IActionResult> UpdatePet(UpdatePetDto dto)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(updatePetDto);
-            }
-
             var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(updatePetDto);
+            var jsonData = JsonConvert.SerializeObject(dto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-
-            var responseMessage = await client.PutAsync($"http://localhost:44310/api/Pets/", stringContent);
+            var responseMessage = await client.PutAsync($"{target}/api/Pets", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
+                using (var dbContext = new Context())
+                {
+                    List<SelectListItem> ownerValues = dbContext.Owners
+                        .Select(owner => new SelectListItem
+                        {
+                            Text = owner.Name + " " + owner.Surname,
+                            Value = owner.OwnerID.ToString(),
+                        })
+                        .ToList();
+
+                    ViewBag.v = ownerValues;
+
+                }
                 return RedirectToAction("Index");
             }
-
-            // API çağrısı başarısızsa hata mesajlarıyla birlikte aynı view'a geri dönün
-            ModelState.AddModelError("", "Güncelleme işlemi sırasında bir hata oluştu.");
-            return View(updatePetDto);
+            return View();
+            
+            
         }
+
 
     }
 }

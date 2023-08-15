@@ -11,6 +11,6 @@ namespace PetsProject.WebUI.Dtos.PetsDto
         public string Type { get; set; }
         public DateTime BirthDate { get; set; }
         public DateTime RegisterDate { get; set; }
-        public int OwnerID { get; set; }
+        public string OwnerID { get; set; }
     }
 }

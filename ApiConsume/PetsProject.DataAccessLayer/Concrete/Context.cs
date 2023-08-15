@@ -19,5 +19,6 @@ namespace PetsProject.DataAccessLayer.Concrete
         public DbSet<Owner> Owners { get; set; }
         public DbSet<Staff> Staffs { get; set; }
         public DbSet<Pets> Petss { get; set; }
+        public DbSet<Feature> Features { get; set; }
     }
 }
