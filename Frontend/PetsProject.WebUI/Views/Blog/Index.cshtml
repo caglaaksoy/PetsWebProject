@@ -1,0 +1,24 @@
+﻿@model List<ResultBlogDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Hizmet Başlığı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.BlogID</th>
+            <td>@item.BlogTitle</td>
+            <td><a href="/Blog/DeleteBlog/@item.BlogID" class="btn mb-1 btn-rounded btn-outline-danger">Sil</a></td>
+            <td><a href="/Blog/UpdateBlog/@item.BlogID" class="btn mb-1 btn-rounded btn-outline-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Blog/AddBlog/" class="btn mb-1 btn-rounded btn-outline-info">Yeni Blog Girişi</a>

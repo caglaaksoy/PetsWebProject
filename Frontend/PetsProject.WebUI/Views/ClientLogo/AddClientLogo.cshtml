@@ -1,0 +1,18 @@
+﻿@model CreateClientLogoDto
+@{
+    ViewData["Title"] = "AddClientLogo";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<form method="post">
+
+    <label>Sponsor Logo</label>
+    <input type="text" asp-for="LogoPhoto" class="form-control" />
+    <span asp-validation-for="LogoPhoto" class="text-danger"></span>
+
+
+
+
+    <button class="btn btn-primary">Sponsor Ekle</button>
+</form>
+

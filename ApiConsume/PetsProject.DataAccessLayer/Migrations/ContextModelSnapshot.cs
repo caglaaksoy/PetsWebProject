@@ -19,6 +19,48 @@ namespace PetsProject.DataAccessLayer.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Blog", b =>
+                {
+                    b.Property<int>("BlogID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("BlogPhotoUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BlogTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Writer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("BlogID");
+
+                    b.ToTable("Blogs");
+                });
+
+            modelBuilder.Entity("PetsProject.EntityLayer.Concrete.ClientLogo", b =>
+                {
+                    b.Property<int>("ClientLogoID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("LogoPhoto")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ClientLogoID");
+
+                    b.ToTable("ClientLogos");
+                });
+
             modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Feature", b =>
                 {
                     b.Property<int>("FeatureID")
@@ -94,6 +136,66 @@ namespace PetsProject.DataAccessLayer.Migrations
                     b.HasIndex("OwnerID");
 
                     b.ToTable("Petss");
+                });
+
+            modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Product", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Explanation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProductId");
+
+                    b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Service", b =>
+                {
+                    b.Property<int>("ServiceID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Explanation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhotoUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ServiceID");
+
+                    b.ToTable("Services");
+                });
+
+            modelBuilder.Entity("PetsProject.EntityLayer.Concrete.ShopProcess", b =>
+                {
+                    b.Property<int>("ShopProcessID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Explanation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ShopProcessID");
+
+                    b.ToTable("ShopProcesies");
                 });
 
             modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Staff", b =>

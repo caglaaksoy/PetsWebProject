@@ -46,6 +46,21 @@ namespace PetsProject.WebApi
             services.AddScoped<IFeatureDal, EfFeatureDal>();
             services.AddScoped<IFeatureService, FeatureManager>();
 
+            services.AddScoped<IServiceDal, EfServiceDal>();
+            services.AddScoped<IServiceService, ServiceManager>();
+
+            services.AddScoped<IProductDal, EfProductDal>();
+            services.AddScoped<IProductService, ProductManager>();
+
+            services.AddScoped<IShopProcessDal, EfShopProcessDal>();
+            services.AddScoped<IShopProcessService, ShopProcessManager>();
+
+            services.AddScoped<IBlogDal, EfBlogDal>();
+            services.AddScoped<IBlogService, BlogManager>();
+
+            services.AddScoped<IClientLogoDal, EfClientLogoDal>();
+            services.AddScoped<IClientLogoService, ClientLogoManager>();
+
             //api cors izinleri veriliyor
 
             services.AddCors(opt =>

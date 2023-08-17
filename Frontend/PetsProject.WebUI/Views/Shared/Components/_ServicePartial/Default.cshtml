@@ -1,51 +1,33 @@
-﻿<section class="service section-padding secondary-bg">
+﻿@model List<ResultServiceDto>
+<section class="service section-padding secondary-bg">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <div class="section-heading">
                     <h4 class="subheading">services</h4>
-                    <span class="subtitle">our solutions</span>
-                    <h2>Services We Provide <span>Benifited Health</span></h2>
+                    <span class="subtitle">Hizmetlerimiz</span>
+                    <h2>Evcil Dostlarımız İçin <span>Her Şey</span></h2>
                 </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item">
-                    <div class="service-img">
-                        <span>01</span>
-                        <img src="~/orgenik-organic-food-html5-template-2022-02-21-23-53-47-utc/orgenik-file/assets/images/services/services-1.png" alt="" class="img-fluid">
+            @foreach (var item in Model)
+            {
+                var index = Model.IndexOf(item); // Öğenin indeksini al
+                var serviceNumber = index + 1; // Sıra numarasını hesapla
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <div class="service-img">
+                            <span>@serviceNumber.ToString("D2")</span>
+                            <img src="@item.PhotoUrl" alt="" class="img-fluid">
+                        </div>
+                        <h4>@item.Name</h4>
+                        <p>@item.Explanation</p>
+                        <a href="#" class="btn btn-main2">Daha Fazla<i class="ti-angle-right"></i></a>
                     </div>
-                    <h4>Fresh Vegetables</h4>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</p>
-                    <a href="#" class="btn btn-main2">Learn More<i class="ti-angle-right"></i></a>
                 </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item">
-                    <div class="service-img">
-                        <span>02</span>
-                        <img src="~/orgenik-organic-food-html5-template-2022-02-21-23-53-47-utc/orgenik-file/assets/images/services/services-2.png" alt="" class="img-fluid">
-                    </div>
-                    <h4>Natural Foods</h4>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</p>
-                    <a href="#" class="btn btn-main2">Learn More<i class="ti-angle-right"></i></a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item">
-                    <div class="service-img">
-                        <span>03</span>
-                        <img src="~/orgenik-organic-food-html5-template-2022-02-21-23-53-47-utc/orgenik-file/assets/images/services/services-3.png" alt="" class="img-fluid">
-                    </div>
-                    <h4>Fresh Meats</h4>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</p>
-                    <a href="#" class="btn btn-main2"> Learn More<i class="ti-angle-right"></i></a>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </section>

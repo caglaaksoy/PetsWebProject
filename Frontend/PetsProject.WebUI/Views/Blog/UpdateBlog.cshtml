@@ -1,0 +1,36 @@
+﻿@model UpdateBlogDto
+@{
+    ViewData["Title"] = "UpdateBlog";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+<form method="post">
+    <input type="hidden" asp-for="BlogID" />
+
+    <label>Blog Fotoğrafı</label>
+    <input type="text" asp-for="BlogPhotoUrl" class="form-control" />
+    <span asp-validation-for="BlogPhotoUrl" class="text-info"></span>
+    <br />
+
+    <label>Blog Başlığı</label>
+    <input type="text" asp-for="BlogTitle" class="form-control" />
+    <span asp-validation-for="BlogTitle" class="text-info"></span>
+
+    <br />
+
+    <label>Blog Yazısı</label>
+    <input type="text" asp-for="Text" class="form-control" />
+    <span asp-validation-for="Text" class="text-info"></span>
+
+    <br />
+
+    <label>Blog Yazarı</label>
+    <input type="text" asp-for="Writer" class="form-control" />
+    <span asp-validation-for="Writer" class="text-info"></span>
+
+    <br />
+
+
+
+    <button class="btn btn-primary">Hizmeti Güncelle</button>
+</form>
+

@@ -1,0 +1,18 @@
+﻿@model UpdateClientLogoDto
+@{
+    ViewData["Title"] = "UpdateClientLogo";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+<form method="post">
+    <input type="hidden" asp-for="ClientLogoID" />
+
+    <label>Sponsor Logo</label>
+    <input type="text" asp-for="LogoPhoto" class="form-control" />
+    <span asp-validation-for="LogoPhoto" class="text-info"></span>
+    <br />
+
+   
+
+    <button class="btn btn-primary">Sponsoru Güncelle</button>
+</form>
+

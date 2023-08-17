@@ -1,71 +1,36 @@
-﻿<section class="blog-section section-padding">
+﻿@model List<ResultBlogDto>
+<section class="blog-section section-padding">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <div class="section-heading">
-                    <h4 class="subheading">Blog News</h4>
-                    <span class="subtitle">Blog articles</span>
-                    <h2>Blog tips <span>& articles to grow</span></h2>
+                    <h4 class="subheading"></h4>
+                    <span class="subtitle">Yazarlarımızın Blogları</span>
+                    <h2>Dostlarınızı anlamak için <span>mutlaka blog yazılarımızı okumalısınız!</span></h2>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-post">
-                    <div class="post-media">
-                        <span class="post-meta-date">10 jun</span>
-                        <img src="~/orgenik-organic-food-html5-template-2022-02-21-23-53-47-utc/orgenik-file/assets/images/blog/blog1.jpg" alt="" class="img-fluid">
-                    </div>
-
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-author"><i class="ti-user"></i>Perales Kelvin</span>
-                            <span class="post-comment"><i class="ti-comments"></i>1 comment</span>
-                        </div>
-                        <h2 class="post-title"><a href="#">How to steam & purée your sugar pie pumkin</a></h2>
-                        <p>Lorem ipsum dolor consectetur adipisicing elit sed do eiusmo</p>
-                        <a href="#" class="btn btn-main2">Read More<i class="ti-angle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-post">
-                    <div class="post-media">
-                        <span class="post-meta-date">10 jun</span>
-                        <img src="~/orgenik-organic-food-html5-template-2022-02-21-23-53-47-utc/orgenik-file/assets/images/blog/blog2.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-author"><i class="ti-user"></i>Perales Kelvin</span>
-                            <span class="post-comment"><i class="ti-comments"></i>1 comment</span>
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-post">
+                        <div class="post-media">
+                            <span class="post-meta-date">@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</span>
+                            <img src="@item.BlogPhotoUrl" alt="" class="img-fluid">
                         </div>
 
-                        <h2 class="post-title"><a href="#">Great bulk recipes to organic vegetables</a></h2>
-                        <p>Lorem ipsum dolor consectetur adipisicing elit sed do eiusmo</p>
-                        <a href="#" class="btn btn-main2">Read More<i class="ti-angle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-post">
-                    <div class="post-media">
-                        <span class="post-meta-date">10 jun</span>
-                        <img src="~/orgenik-organic-food-html5-template-2022-02-21-23-53-47-utc/orgenik-file/assets/images/blog/blog3.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-author"><i class="ti-user"></i>Perales Kelvin</span>
-                            <span class="post-comment"><i class="ti-comments"></i>1 comment</span>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-author"><i class="ti-user"></i>@item.Writer</span>
+                            </div>
+                            <h2 class="post-title"><a href="#">@item.BlogTitle</a></h2>
+                            <p>@(item.Text.Length > 50 ? item.Text.Substring(0, 50) + "..." : item.Text)</p>
+                            <a href="#" class="btn btn-main2">Okumaya devam et<i class="ti-angle-right"></i></a>
                         </div>
-
-                        <h2 class="post-title"><a href="#">Minimalist trending in modern agriculture</a></h2>
-                        <p>Lorem ipsum dolor consectetur adipisicing elit sed do eiusmo</p>
-                        <a href="#" class="btn btn-main2">Read More<i class="ti-angle-right"></i></a>
                     </div>
                 </div>
-            </div>
+            }
         </div>
     </div>
 </section>

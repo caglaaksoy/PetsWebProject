@@ -1,0 +1,26 @@
+﻿@model List<ResultClientLogoDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Sponsor Logo Fotoğrafı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.ClientLogoID</th>
+            <td>@item.LogoPhoto</td>
+            <td><a href="/ClientLogo/DeleteClientLogo/@item.ClientLogoID" class="btn mb-1 btn-rounded btn-outline-danger">Sil</a></td>
+            <td><a href="/ClientLogo/UpdateClientLogo/@item.ClientLogoID" class="btn mb-1 btn-rounded btn-outline-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<a href="/ClientLogo/AddClientLogo/" class="btn mb-1 btn-rounded btn-outline-info">Yeni Sponsor Girişi</a>
+

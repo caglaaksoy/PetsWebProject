@@ -15,7 +15,7 @@
 
     @await Component.InvokeAsync("_BannerPartial")
 
-    @await Component.InvokeAsync("_FeaturePartial")
+    @await Component.InvokeAsync("_FeaturePartial") @*db*@
 
     @await Component.InvokeAsync("_AboutPartial")
 
@@ -23,19 +23,19 @@
 
     @await Component.InvokeAsync("_CtaPartial")
 
-    @await Component.InvokeAsync("_About2Partial")
+    @await Component.InvokeAsync("_ProductPartial") @*db*@
 
-    @await Component.InvokeAsync("_OrderBookingPartial")
+    @await Component.InvokeAsync("_ShopProcessPartial") @*db*@
 
     @await Component.InvokeAsync("_Cta2Partial")
 
-    @await Component.InvokeAsync("_DealPartial")
+    @*@await Component.InvokeAsync("_DealPartial") ?? düşün*@
 
     @await Component.InvokeAsync("_BlogPartial")
 
     @await Component.InvokeAsync("_ClientLogoPartial")
 
-    @await Component.InvokeAsync("_FooterPartial")
+    @await Component.InvokeAsync("_FooterPartial") @*burdan başlıcam üsttekiler bitti*@
 
     @await Component.InvokeAsync("_ButtonTopPartial")
 

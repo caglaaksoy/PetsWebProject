@@ -23,7 +23,7 @@ namespace PetsProject.WebApi.Controllers
             return Ok(values);
         }
         [HttpPost]
-        public IActionResult AddService(Feature feature)
+        public IActionResult AddFeature(Feature feature)
         {
             _featureService.TInsert(feature);
             return Ok();

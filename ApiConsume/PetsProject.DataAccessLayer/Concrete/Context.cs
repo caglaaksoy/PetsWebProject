@@ -20,5 +20,10 @@ namespace PetsProject.DataAccessLayer.Concrete
         public DbSet<Staff> Staffs { get; set; }
         public DbSet<Pets> Petss { get; set; }
         public DbSet<Feature> Features { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ShopProcess> ShopProcesies { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<ClientLogo> ClientLogos { get; set; }
     }
 }

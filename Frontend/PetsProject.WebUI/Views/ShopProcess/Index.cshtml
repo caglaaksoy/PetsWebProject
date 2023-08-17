@@ -1,0 +1,21 @@
+﻿@model List<ResultShopProcessDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Başlığı</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.ShopProcessID</th>
+            <td>@item.Title</td>
+            <td><a href="#" class="btn mb-1 btn-rounded btn-outline-danger">Detaylar</a></td>
+        </tr>
+    }
+</table>
