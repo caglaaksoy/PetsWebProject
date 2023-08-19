@@ -1,21 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
-using PetsProject.WebUI.Dtos.FeatureDto;
+using PetsProject.WebUI.Dtos.TeamDto;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System;
-using PetsProject.WebUI.Dtos.FooterDto;
+using PetsProject.WebUI.Dtos.ContactDto;
+using System.Text;
 
-namespace PetsProject.WebUI.ViewComponents.Default
+namespace PetsProject.WebUI.ViewComponents.Contact
 {
-    public class _FooterPartial : ViewComponent
+    public class _ContactMailPartial : ViewComponent
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private string target;
 
-        public _FooterPartial(IHttpClientFactory httpClientFactory, IConfiguration configuration)
+        public _ContactMailPartial(IHttpClientFactory httpClientFactory, IConfiguration configuration)
         {
             _httpClientFactory = httpClientFactory;
             target = configuration["BackendTarget"];
@@ -27,14 +28,15 @@ namespace PetsProject.WebUI.ViewComponents.Default
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"{target}/api/Footer");
+            var responseMessage = await client.GetAsync($"{target}/api/Contact");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultFooterDto>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<InboxContactDto>>(jsonData);
                 return View(values);
             }
             return View();
         }
+
     }
 }

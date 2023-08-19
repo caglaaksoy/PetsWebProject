@@ -1,0 +1,36 @@
+﻿@model UpdateTeamDto
+@{
+    ViewData["Title"] = "UpdateTeam";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+
+<form method="post">
+    <input type="hidden" asp-for="ID" />
+
+    <label>Personel Fotoğrafı</label>
+    <input type="text" asp-for="PhotoUrl" class="form-control" />
+    <span asp-validation-for="PhotoUrl" class="text-info"></span>
+    <br />
+
+    <label>Personel Adı</label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-info"></span>
+    <br />
+
+    <label>Personel Soyadı</label>
+    <input type="text" asp-for="Surname" class="form-control" />
+    <span asp-validation-for="Surname" class="text-info"></span>
+    <br />
+
+    <label>Görevi</label>
+    <input type="text" asp-for="Job" class="form-control" />
+    <span asp-validation-for="Job" class="text-info"></span>
+    <br />
+
+
+
+    <button class="btn btn-primary">Personeli Güncelle</button>
+</form>
+
+
