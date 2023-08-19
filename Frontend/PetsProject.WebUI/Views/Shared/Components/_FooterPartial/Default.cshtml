@@ -1,49 +1,57 @@
-﻿<section class="footer">
+﻿@model List<ResultFooterDto>
+
+<section class="footer">
     <div class="footer-top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mr-auto col-sm-6 col-md-6">
-                    <div class="footer-widget footer-about mb-5 mb-lg-0">
-                        <img src="~/orgenik-organic-food-html5-template-2022-02-21-23-53-47-utc/orgenik-file/assets/images/logo-dark.png" alt="Maxeo" class="img-fluid">
-                        <p class="mt-3">Veniam Sequi molestias aut necessitatibus optio magni at natus accusamus . Nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-                        <ul class="list-inline footer-socials">
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li class="list-inline-item"> <a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                
-
-                <div class="col-lg-3 col-sm-6 col-md-6">
-                    <div class="footer-widget footer-contact mb-5 mb-lg-0">
-                        <h5 class="widget-title">Contact</h5>
-                        <ul class="list-unstyled">
-                            <li> <i class="fa fa-map-marker"></i>Moon Street Light Avenue, 14/05</li>
-                            <li> <i class="fa fa-envelope"></i>info@yourdomain.com</li>
-                            <li><i class="fa fa-phone"></i>(68) 345 5902</li>
-                            <li><i class="fa fa-globe"></i>www.website.com</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6 col-md-6">
-                    <div class="footer-widget footer-contact mb-5 mb-lg-0">
-                        <h5 class="widget-title">Gallery</h5>
-                        <div class="footer-gallery">
-                            <ul>
-                                <li><img src="~/orgenik-organic-food-html5-template-2022-02-21-23-53-47-utc/orgenik-file/assets/images/gallery/g1.jpg" alt="" class="img-fluid"></li>
-                                <li><img src="~/orgenik-organic-food-html5-template-2022-02-21-23-53-47-utc/orgenik-file/assets/images/gallery/g2.jpg" alt="" class="img-fluid"></li>
-                                <li><img src="~/orgenik-organic-food-html5-template-2022-02-21-23-53-47-utc/orgenik-file/assets/images/gallery/g3.jpg" alt="" class="img-fluid"></li>
-                                <li><img src="~/orgenik-organic-food-html5-template-2022-02-21-23-53-47-utc/orgenik-file/assets/images/gallery/g2.jpg" alt="" class="img-fluid"></li>
-                                <li><img src="~/orgenik-organic-food-html5-template-2022-02-21-23-53-47-utc/orgenik-file/assets/images/gallery/g3.jpg" alt="" class="img-fluid"></li>
-                                <li><img src="~/orgenik-organic-food-html5-template-2022-02-21-23-53-47-utc/orgenik-file/assets/images/gallery/g1.jpg" alt="" class="img-fluid"></li>
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 mr-auto col-sm-6 col-md-6">
+                        <div class="footer-widget footer-about mb-5 mb-lg-0">
+                            <img src="https://i.hizliresim.com/cif2ooh.png" alt="Maxeo" class="img-fluid" style="height:100px; width:200px" >
+                            <p class="mt-3">@item.Text</p>
+                            <ul class="list-inline footer-socials">
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="list-inline-item"> <a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
                             </ul>
                         </div>
                     </div>
-                </div>
+
+
+
+
+
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="footer-widget footer-contact mb-5 mb-lg-0">
+                            <h5 class="widget-title">Bize Ulaşın</h5>
+                            <ul class="list-unstyled">
+                                <li> <i class="fa fa-map-marker"></i>@item.Adress</li>
+                                <li> <i class="fa fa-envelope"></i>@item.Email</li>
+                                <li><i class="fa fa-phone"></i>@item.Phone</li>
+                                <li><i class="fa fa-globe"></i>@item.Website</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="footer-widget footer-contact mb-5 mb-lg-0">
+                            <h5 class="widget-title">Gallery</h5>
+                            <div class="footer-gallery">
+                                <ul>
+                                    <li><img src="@item.Gallery1" alt="" class="img-fluid"></li>
+                                    <li><img src="@item.Gallery2" alt="" class="img-fluid"></li>
+                                    <li><img src="@item.Gallery3" alt="" class="img-fluid"></li>
+                                    <li><img src="@item.Gallery4" alt="" class="img-fluid"></li>
+                                    <li><img src="@item.Gallery5" alt="" class="img-fluid"></li>
+                                    <li><img src="@item.Gallery6" alt="" class="img-fluid"></li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     </div>
@@ -53,15 +61,10 @@
             <div class="row copyright-bg">
                 <div class="col-lg-6">
                     <div class="copyright text-lg-left text-center">
-                        <p>&copy; Copyright reserved to <a href="themeturn.com">Orgenik</a>by Dreambuzz-2020</p>
+                        <p>Tüm Hakları Saklıdır-2023</p>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="footer-btm-menu text-lg-right text-center">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Term & conditions</a>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>

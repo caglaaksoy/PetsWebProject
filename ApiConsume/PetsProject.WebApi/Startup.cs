@@ -61,6 +61,15 @@ namespace PetsProject.WebApi
             services.AddScoped<IClientLogoDal, EfClientLogoDal>();
             services.AddScoped<IClientLogoService, ClientLogoManager>();
 
+            services.AddScoped<IFooterDal, EfFooterDal>();
+            services.AddScoped<IFooterService, FooterManager>();
+
+            services.AddScoped<ITeamDal, EfTeamDal>();
+            services.AddScoped<ITeamService, TeamManager>();
+
+            services.AddScoped<IContactDal, EfContactDal>();
+            services.AddScoped<IContactService, ContactManager>();
+
             //api cors izinleri veriliyor
 
             services.AddCors(opt =>

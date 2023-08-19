@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+@await Component.InvokeAsync("_HeadPartial")
+
+<body id="top-header">
+
+    @await Component.InvokeAsync("_ContactHeaderPartial")
+
+    @await Html.PartialAsync("/Views/Contact/SendMessage.cshtml")
+
+    @await Component.InvokeAsync("_FooterPartial")
+
+    @await Component.InvokeAsync("_ButtonTopPartial")
+
+    @await Component.InvokeAsync("_ContactScriptsPartial")
+
+
+</body>
+</html>
+
+

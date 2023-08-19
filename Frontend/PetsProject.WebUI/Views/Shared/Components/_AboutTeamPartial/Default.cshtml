@@ -1,0 +1,34 @@
+﻿@model List<ResultTeamDto>
+<section class="team section-padding secondary-bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-heading">
+                    <h4 class="subheading">Order </h4>
+                    <span class="subtitle">EKİBİMİZ</span>
+                    <h2>Ekibimiz Bünyesindeki<span> Çalışma Arkadaşlarımız</span></h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-item">
+                        <img src="@item.PhotoUrl" alt="" class="img-fluid">
+                        <div class="team-info">
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="ti-linkedin"></i></a></li>
+                            </ul>
+                            <h4>@item.Name @item.Surname</h4>
+                            <p>@item.Job</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

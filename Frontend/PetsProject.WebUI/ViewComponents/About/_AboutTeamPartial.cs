@@ -6,16 +6,16 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System;
-using PetsProject.WebUI.Dtos.FooterDto;
+using PetsProject.WebUI.Dtos.TeamDto;
 
-namespace PetsProject.WebUI.ViewComponents.Default
+namespace PetsProject.WebUI.ViewComponents.About
 {
-    public class _FooterPartial : ViewComponent
+    public class _AboutTeamPartial : ViewComponent
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private string target;
 
-        public _FooterPartial(IHttpClientFactory httpClientFactory, IConfiguration configuration)
+        public _AboutTeamPartial(IHttpClientFactory httpClientFactory, IConfiguration configuration)
         {
             _httpClientFactory = httpClientFactory;
             target = configuration["BackendTarget"];
@@ -27,11 +27,11 @@ namespace PetsProject.WebUI.ViewComponents.Default
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"{target}/api/Footer");
+            var responseMessage = await client.GetAsync($"{target}/api/Team");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultFooterDto>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultTeamDto>>(jsonData);
                 return View(values);
             }
             return View();
