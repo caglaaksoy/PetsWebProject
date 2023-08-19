@@ -61,33 +61,6 @@ namespace PetsProject.DataAccessLayer.Migrations
                     b.ToTable("ClientLogos");
                 });
 
-            modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Contact", b =>
-                {
-                    b.Property<int>("ContactID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Mail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Message")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Subject")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ContactID");
-
-                    b.ToTable("Contacts");
-                });
-
             modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Feature", b =>
                 {
                     b.Property<int>("FeatureID")
@@ -107,51 +80,6 @@ namespace PetsProject.DataAccessLayer.Migrations
                     b.HasKey("FeatureID");
 
                     b.ToTable("Features");
-                });
-
-            modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Footer", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Adress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Gallery1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Gallery2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Gallery3")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Gallery4")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Gallery5")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Gallery6")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Text")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Website")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Footers");
                 });
 
             modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Owner", b =>
@@ -289,30 +217,6 @@ namespace PetsProject.DataAccessLayer.Migrations
                     b.HasKey("StaffId");
 
                     b.ToTable("Staffs");
-                });
-
-            modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Team", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Job")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhotoUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Surname")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Teams");
                 });
 
             modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Pets", b =>

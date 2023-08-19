@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Frontend\PetsProject.WebUI\PetsProject.WebUI.csproj" />
     <ProjectReference Include="..\PetsProject.BusinessLayer\PetsProject.BusinessLayer.csproj" />
     <ProjectReference Include="..\PetsProject.DataAccessLayer\PetsProject.DataAccessLayer.csproj" />
     <ProjectReference Include="..\PetsProject.DtoLayer\PetsProject.DtoLayer.csproj" />

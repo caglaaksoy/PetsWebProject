@@ -25,8 +25,5 @@ namespace PetsProject.DataAccessLayer.Concrete
         public DbSet<ShopProcess> ShopProcesies { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<ClientLogo> ClientLogos { get; set; }
-        public DbSet<Footer> Footers { get; set; }
-        public DbSet<Team> Teams { get; set; }
-        public DbSet<Contact> Contacts { get; set; }
     }
 }
