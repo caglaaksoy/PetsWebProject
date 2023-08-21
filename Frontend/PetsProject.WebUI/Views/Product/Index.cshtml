@@ -8,14 +8,14 @@
     <tr>
         <th>#</th>
         <th>Hizmet Başlığı</th>
-        <th>Detaylar</th>
+        <th>Hizmet Açıklaması</th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
             <th>@item.ProductId</th>
-            <td>@item.Title</td>
-            <td><a href="#" class="btn mb-1 btn-rounded btn-outline-danger">Detaylar</a></td>
+            <td>@item.Title1</td>
+            <td>@item.Explanation</td>
         </tr>
     }
 </table>

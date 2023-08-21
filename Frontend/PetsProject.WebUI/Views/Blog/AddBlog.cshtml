@@ -4,6 +4,17 @@
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
+
+@*
+    takvim eklemek için ilgili kkütüphaneler*@
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- jQuery UI -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <form method="post">
     
     <label>Blog Başlığı</label>
@@ -11,8 +22,9 @@
     <span asp-validation-for="BlogTitle" class="text-danger"></span>
     <br />
 
+
     <label>Blog Yazısı</label>
-    <input type="text" asp-for="Text" class="form-control" />
+    <textarea class="form-control h-150px" rows="6" asp-for="Text"></textarea>
     <span asp-validation-for="Text" class="text-danger"></span>
     <br />
 
@@ -26,7 +38,11 @@
     <span asp-validation-for="BlogPhotoUrl" class="text-danger"></span>
     <br />
 
-   
+    <label>Blog Oluşturulma Tarihi</label>
+    <input type="text" asp-for="Date" class="form-control datepicker" />
+    <span asp-validation-for="Date" class="text-danger"></span>
+    <br />
+
 
     <button class="btn btn-primary">Blog Ekle</button>
 </form>

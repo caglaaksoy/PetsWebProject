@@ -11,21 +11,37 @@
             </div>
         </div>
         <div class="row">
-            @foreach (var item in Model)
+            @*row align-items-stretch*@
+            @foreach (var item in ViewBag.blogs)
             {
                 <div class="col-lg-4 col-md-6">
                     <div class="blog-post">
                         <div class="post-media">
                             <span class="post-meta-date">@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</span>
-                            <img src="@item.BlogPhotoUrl" alt="" class="img-fluid">
+                            <img src="@item.BlogPhotoUrl" alt="" class="img-fluid" style="height:260px ;   display: block;  margin-left: auto;  margin-right: auto; ">
                         </div>
 
                         <div class="post-content">
                             <div class="post-meta">
                                 <span class="post-author"><i class="ti-user"></i>@item.Writer</span>
                             </div>
-                            <h2 class="post-title"><a href="#">@item.BlogTitle</a></h2>
-                            <p>@(item.Text.Length > 50 ? item.Text.Substring(0, 50) + "..." : item.Text)</p>
+                            @*    <h2 class="post-title"><a href="#">@item.BlogTitle</a></h2>*@
+                            <h2 class="post-title">
+                                <a href="#">
+                                    @if (item.BlogTitle.Length <= 50)
+                                    {
+                                        @item.BlogTitle
+                                    }
+                                    else
+                                    {
+                                        @(item.BlogTitle.Substring(0, 47) + "...")
+                                    }
+                                </a>
+                            </h2>
+
+
+
+                            <p>@(item.Text.Length > 70 ? item.Text.Substring(0, 70) + "..." : item.Text)</p>
                             <a href="#" class="btn btn-main2">Okumaya devam et<i class="ti-angle-right"></i></a>
                         </div>
                     </div>

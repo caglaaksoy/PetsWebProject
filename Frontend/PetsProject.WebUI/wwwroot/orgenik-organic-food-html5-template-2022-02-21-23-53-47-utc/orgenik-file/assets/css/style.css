@@ -293,7 +293,7 @@ Banner Area
 .page-header {
   padding: 220px 0px 120px;
   position: relative;
-  background: url("../images/bg/banner-bg-2.jpg") no-repeat;
+ /* background: url("../images/bg/banner-bg-2.jpg") no-repeat;*/
   background-size: cover;
   background-position: center center;
   text-align: center;
@@ -655,7 +655,7 @@ Services
  CTA BG
 ================================*/
 .cta {
-  background: url("../images/bg/banner-bg-2.jpg") center center;
+  /*background: url("../images/bg/banner-bg-2.jpg") center center;*/
   background-size: cover;
   background-repeat: no-repeat;
   padding: 120px 0px 0px;

@@ -92,7 +92,7 @@ namespace PetsProject.WebUI.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> UpdateFeature(UpdateBlogDto updateBlogDto)
+        public async Task<IActionResult> UpdateBlog(UpdateBlogDto updateBlogDto)
         {
             if (!ModelState.IsValid)
             {
