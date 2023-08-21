@@ -1,0 +1,48 @@
+﻿@model List<ResultFoodDto>
+<section class="service section-padding secondary-bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-heading">
+                    <h4 class="subheading">services</h4>
+                    <span class="subtitle">our solutions</span>
+                    <h2>Services We Provide <span>Benifited Health</span></h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row no-gutters">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="service-item style-2">
+                        <div class="service-img">
+                            <img src="@item.PhotoUrl" alt="" class="img-fluid" style="height:200px ;   display: block;  margin-left: auto;  margin-right: auto; ">
+                        </div>
+                        <h4>
+                            <a href="#">
+                                @if (item.Name.Length <= 25)
+                                {
+                                    @item.Name
+                                }
+                                else
+                                {
+                                    @(item.Name.Substring(0, 22) + "...")
+                                }
+                            </a>
+                        </h4>
+                        <p>@(item.Explanation.Length > 50 ? item.Explanation.Substring(0, 50) + "..." : item.Explanation)</p>
+                        <p>@item.Price ₺</p>
+                        <div class="banner-btn">
+                            <a href="#" class="btn btn-border">SEPETE EKLE<i class="ti-angle-right"></i></a>
+                        </div>
+                    </div>
+
+
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

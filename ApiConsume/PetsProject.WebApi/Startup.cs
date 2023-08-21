@@ -70,6 +70,9 @@ namespace PetsProject.WebApi
             services.AddScoped<IContactDal, EfContactDal>();
             services.AddScoped<IContactService, ContactManager>();
 
+            services.AddScoped<IFoodDal, EfFoodDal>();
+            services.AddScoped<IFoodService, FoodManager>();
+
             //api cors izinleri veriliyor
 
             services.AddCors(opt =>

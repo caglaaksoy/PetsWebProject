@@ -1,0 +1,36 @@
+﻿@model CreateFoodDto
+@{
+    ViewData["Title"] = "AddService";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+
+<form method="post">
+    <label>Mama Fotoğrafı</label>
+    <input type="text" asp-for="PhotoUrl" class="form-control" />
+    <span asp-validation-for="PhotoUrl" class="text-danger"></span>
+
+
+    <label>Mama Adı</label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+
+    <br />
+
+    <label>Açıklama</label>
+    <input type="text" asp-for="Explanation" class="form-control" />
+    <span asp-validation-for="Explanation" class="text-danger"></span>
+
+    <br />
+
+    <label>Fiyat</label>
+    <input type="text" asp-for="Price" class="form-control" />
+    <span asp-validation-for="Price" class="text-danger"></span>
+
+    <br />
+
+
+
+    <button class="btn btn-primary">Mama Ekle</button>
+</form>
+

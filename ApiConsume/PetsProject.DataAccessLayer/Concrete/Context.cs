@@ -28,5 +28,6 @@ namespace PetsProject.DataAccessLayer.Concrete
         public DbSet<Footer> Footers { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Food> Foods { get; set; }
     }
 }

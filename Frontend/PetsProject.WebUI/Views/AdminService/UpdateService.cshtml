@@ -1,0 +1,38 @@
+﻿@model UpdateFoodDto
+@{
+    ViewData["Title"] = "UpdateService";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <input type="hidden" asp-for="FoodID" />
+
+    <label>Mama Fotoğrafı</label>
+    <input type="text" asp-for="PhotoUrl" class="form-control" />
+    <span asp-validation-for="PhotoUrl" class="text-info"></span>
+    <br />
+
+    <label>Mama Adı</label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-info"></span>
+
+    <br />
+
+    <label>Açıklama</label>
+    <input type="text" asp-for="Explanation" class="form-control" />
+    <span asp-validation-for="Explanation" class="text-info"></span>
+
+    <br />
+
+    <label>Fiyat</label>
+    <input type="text" asp-for="Price" class="form-control" />
+    <span asp-validation-for="Price" class="text-info"></span>
+
+    <br />
+
+
+    <button class="btn btn-primary">Mama bilgilerini Güncelle</button>
+</form>
+
+
+

@@ -4,6 +4,7 @@ using PetsProject.WebUI.Dtos.BlogDto;
 using PetsProject.WebUI.Dtos.ClientLogoDto;
 using PetsProject.WebUI.Dtos.ContactDto;
 using PetsProject.WebUI.Dtos.FeatureDto;
+using PetsProject.WebUI.Dtos.FoodDto;
 using PetsProject.WebUI.Dtos.FooterDto;
 using PetsProject.WebUI.Dtos.OwnerDto;
 using PetsProject.WebUI.Dtos.PetsDto;
@@ -54,6 +55,10 @@ namespace PetsProject.WebUI.Mapping
 
             CreateMap<CreateContactDto, Contact>().ReverseMap();
             CreateMap<InboxContactDto, Contact>().ReverseMap();
+
+            CreateMap<ResultFoodDto, Food>().ReverseMap();
+            CreateMap<CreateFoodDto, Food>().ReverseMap();
+            CreateMap<UpdateFoodDto, Food>().ReverseMap();
 
 
         }

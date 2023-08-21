@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+@await Component.InvokeAsync("_HeadPartial")
+
+<body id="top-header">
+
+
+
+    @await Component.InvokeAsync("_ServiceHeaderPartial")
+    
+    @await Component.InvokeAsync("_AboutPartial")
+
+    @await Component.InvokeAsync("_ServiceFoodPartial")
+
+
+
+    @await Component.InvokeAsync("_FooterPartial") @*db*@
+
+    @await Component.InvokeAsync("_ButtonTopPartial")
+
+    @await Component.InvokeAsync("_ServiceScriptsPartial")
+
+</body>
+</html>
