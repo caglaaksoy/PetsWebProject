@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace PetsProject.EntityLayer.Concrete
 {
-    public class AppUser : IdentityUser<int>
+    public class AppRole : IdentityRole<int>
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
     }
 }

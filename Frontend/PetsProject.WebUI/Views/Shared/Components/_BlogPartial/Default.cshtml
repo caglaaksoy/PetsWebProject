@@ -6,7 +6,7 @@
                 <div class="section-heading">
                     <h4 class="subheading"></h4>
                     <span class="subtitle">Yazarlarımızın Blogları</span>
-                    <h2>Dostlarınızı anlamak için <span>mutlaka blog yazılarımızı okumalısınız!</span></h2>
+                    <h2>Blog Yazılarımıza <span>Mutlaka Göz Atmalısınız!</span></h2>
                 </div>
             </div>
         </div>
@@ -28,13 +28,13 @@
                             @*    <h2 class="post-title"><a href="#">@item.BlogTitle</a></h2>*@
                             <h2 class="post-title">
                                 <a href="#">
-                                    @if (item.BlogTitle.Length <= 50)
+                                    @if (item.BlogTitle.Length <= 48)
                                     {
                                         @item.BlogTitle
                                     }
                                     else
                                     {
-                                        @(item.BlogTitle.Substring(0, 47) + "...")
+                                        @(item.BlogTitle.Substring(0, 45) + "...")
                                     }
                                 </a>
                             </h2>

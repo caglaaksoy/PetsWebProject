@@ -7,7 +7,6 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System;
-using Microsoft.AspNetCore.JsonPatch.Internal;
 using PetsProject.WebUI.Dtos.ProductDto;
 
 namespace PetsProject.WebUI.Controllers

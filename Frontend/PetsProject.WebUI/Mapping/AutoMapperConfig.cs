@@ -6,9 +6,11 @@ using PetsProject.WebUI.Dtos.ContactDto;
 using PetsProject.WebUI.Dtos.FeatureDto;
 using PetsProject.WebUI.Dtos.FoodDto;
 using PetsProject.WebUI.Dtos.FooterDto;
+using PetsProject.WebUI.Dtos.LoginDto;
 using PetsProject.WebUI.Dtos.OwnerDto;
 using PetsProject.WebUI.Dtos.PetsDto;
 using PetsProject.WebUI.Dtos.ProductDto;
+using PetsProject.WebUI.Dtos.RegisterDto;
 using PetsProject.WebUI.Dtos.ServiceDto;
 using PetsProject.WebUI.Dtos.ShopProcessDto;
 using PetsProject.WebUI.Dtos.TeamDto;
@@ -59,6 +61,12 @@ namespace PetsProject.WebUI.Mapping
             CreateMap<ResultFoodDto, Food>().ReverseMap();
             CreateMap<CreateFoodDto, Food>().ReverseMap();
             CreateMap<UpdateFoodDto, Food>().ReverseMap();
+
+            CreateMap<CreateNewUserDto, AppUser>().ReverseMap();
+
+            CreateMap<LoginUserDto, AppUser>().ReverseMap();
+
+
 
 
         }
