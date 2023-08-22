@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Documentation</title>
+  <meta charset="utf-8" />
+  <meta name="description" content="A minimal and responsive HTML5 landing page built on lightweight, clean and customizable code." />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="apple-touch-icon-precomposed" href="media/favicon.png" />
+  <link rel="icon" href="media/favicon.png" />
+  <link rel="mask-icon" href="media/favicon.svg" color="rgb(36,38,58)" />
+  <link rel="shortcut icon" href="media/favicon.png" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body class="page page-style-guide">
+
+  <main>
+
+    <section class="bg-dark center dark padding">
+      <div class="margin-bottom margin-top max-width-m">
+        <h1>Documentation</h1>
+        <p class="lead">Get started with your HTML template.</p>
+      </div>
+    </section>
+
+    <div class="padding">
+      <div class="row max-width-l">
+        <div class="col-one-fifth">
+          <aside class="sidebar">
+            <h6 class="sidebar-header">Components</h6>
+            <ul class="blank">
+              <li><a href="#getting-started">Getting Started</a></li>
+              <li><a href="#installation">Installation</a></li>
+              <li><a href="#classes">Classes</a></li>
+              <li><a href="#grid">Grid</a></li>
+              <li><a href="#icons">Icons</a></li>
+              <li><a href="#typography">Typography</a></li>
+              <li><a href="#buttons">Buttons</a></li>
+              <li><a href="#forms">Forms</a></li>
+              <li><a href="#alerts">Alerts</a></li>
+              <li><a href="#tables">Tables</a></li>
+              <li><a href="#cards">Cards</a></li>
+              <li><a href="#dark-mode">Dark Mode</a></li>
+            </ul>
+          </aside>
+        </div>
+        <div class="col-four-fifths">
+
+          <section id="getting-started">
+            <h4>Getting Started</h4>
+            <p class="paragraph">This template is divided in two folders:</p>
+            <table>
+              <tr>
+                <th>Folder</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>/build</td>
+                <td>This is the compiled version. Includes regular CSS and ready to be uploaded to your server.</td>
+              </tr>
+              <tr>
+                <td>/source</td>
+                <td>Use this folder if you're used to work with Sass.</td>
+              </tr>
+            </table>
+          </section>
+
+          <div class="divider"></div>
+
+          <section id="installation">
+            <h4>Installation</h4>
+            <p class="paragraph">Upload the content inside the build folder to your server.</p>
+          </section>
+
+          <div class="divider"></div>
+
+          <section id="classes">
+            <h4>Classes</h4>
+            <p class="paragraph">There are some core classes that defines the layout and design. They are global and not bound to any specific module.</p>
+            <table>
+              <tr>
+                <th>Alignment</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>.center</td>
+                <td>Add this class to center content.</td>
+              </tr>
+              <tr>
+                <td>.center-desktop</td>
+                <td>Center content starting from the desktop media query.</td>
+              </tr>
+              <tr>
+                <td>.center-tablet</td>
+                <td>Center content starting from the tablet media query.</td>
+              </tr>
+              <tr>
+                <td>.center-mobile</td>
+                <td>Center content starting from the mobile media query.</td>
+              </tr>
+              <tr>
+                <td>.middle</td>
+                <td>Align content vertically when height is unknown.</td>
+              </tr>
+            </table>
+            <div class="divider"></div>
+            <table>
+              <tr>
+                <th>Backgrounds</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>.bg-dark</td>
+                <td>Solid background where "dark" can be replaced with "light", "primary", etc.</td>
+              </tr>
+              <tr>
+                <td>.bg-gradient-blue</td>
+                <td>Gradient background where "blue" can be replaced with "cyan", "green", etc.</td>
+              </tr>
+              <tr>
+                <td>.bg-image-01</td>
+                <td>Image-based backgrounds where "01" can be replaced with "02", "03", etc.</td>
+              </tr>
+              <tr>
+                <td>.overlay</td>
+                <td>Adds an overlay with opacity on top of backgrounds.</td>
+              </tr>
+              <tr>
+                <td>.overlay-shape-01</td>
+                <td>Adds an overlay shape on top of backgrounds where "01" can be replaced with "02", "03", etc.</td>
+              </tr>
+            </table>
+            <div class="divider"></div>
+            <table>
+              <tr>
+                <th>Sizes</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>.full-screen</td>
+                <td>Adding this class will make sure the module goes full screen.</td>
+              </tr>
+              <tr>
+                <td>.full-width</td>
+                <td>This class will make sure the element goes full width.</td>
+              </tr>
+              <tr>
+                <td>.full-width-tablet</td>
+                <td>Useful if you'd like an element to go full width on tablets and mobile devices.</td>
+              </tr>
+              <tr>
+                <td>.full-width-mobile</td>
+                <td>Useful if you'd like an element to go full width only on mobile.</td>
+              </tr>
+              <tr>
+                <td>.max-width-s</td>
+                <td>Set a small maximum width of an element.</td>
+              </tr>
+              <tr>
+                <td>.max-width-m</td>
+                <td>Set a medium maximum width of an element.</td>
+              </tr>
+              <tr>
+                <td>.max-width-l</td>
+                <td>Set a large maximum width of an element.</td>
+              </tr>
+              <tr>
+                <td>.min-width-s</td>
+                <td>Set a small minimum width of an element.</td>
+              </tr>
+              <tr>
+                <td>.min-width-m</td>
+                <td>Set a medium minimum width of an element.</td>
+              </tr>
+              <tr>
+                <td>.min-width-l</td>
+                <td>Set a large minimum width of an element.</td>
+              </tr>
+            </table>
+            <div class="divider"></div>
+            <table>
+              <tr>
+                <th>Opacity</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>.opacity-s</td>
+                <td>Adds a small amount of opacity.</td>
+              </tr>
+              <tr>
+                <td>.opacity-m</td>
+                <td>Adds a medium amount of opacity.</td>
+              </tr>
+              <tr>
+                <td>.opacity-l</td>
+                <td>Adds a large amount of opacity.</td>
+              </tr>
+            </table>
+            <div class="divider"></div>
+            <table>
+              <tr>
+                <th>Rounded</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>.rounded</td>
+                <td>Adds a border radius to an element.</td>
+              </tr>
+              <tr>
+                <td>.rounded-bottom</td>
+                <td>Adds a border radius to the bottom of an element.</td>
+              </tr>
+              <tr>
+                <td>.rounded-top</td>
+                <td>Adds a border radius to the top of an element.</td>
+              </tr>
+            </table>
+            <div class="divider"></div>
+            <table>
+              <tr>
+                <th>Shadow</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>.shadow-s</td>
+                <td>Adds a small shadow to an element.</td>
+              </tr>
+              <tr>
+                <td>.shadow-m</td>
+                <td>Adds a medium shadow to an element.</td>
+              </tr>
+              <tr>
+                <td>.shadow-l</td>
+                <td>Adds a large shadow to an element.</td>
+              </tr>
+              <tr>
+                <td>.shadow-none</td>
+                <td>Removes an existing shadow from an element.</td>
+              </tr>
+            </table>
+            <div class="divider"></div>
+            <table>
+              <tr>
+                <th>Spacing</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>.padding</td>
+                <td>This is the main inner spacing of a module.</td>
+              </tr>
+              <tr>
+                <td>.padding-bottom</td>
+                <td>This is the main bottom spacing of a module.</td>
+              </tr>
+              <tr>
+                <td>.padding-top</td>
+                <td>This is the main top spacing of a module.</td>
+              </tr>
+              <tr>
+                <td>.padding-top-tablet</td>
+                <td>Add spacing above content starting from the tablet media query.</td>
+              </tr>
+              <tr>
+                <td>.margin-bottom</td>
+                <td>Add spacing below an element inside a module.</td>
+              </tr>
+              <tr>
+                <td>.margin-top</td>
+                <td>Add spacing above an element inside a module.</td>
+              </tr>
+              <tr>
+                <td>.space</td>
+                <td>Add default spacing around an element.</td>
+              </tr>
+              <tr>
+                <td>.space-bottom</td>
+                <td>Add default spacing to the bottom of an element. Note that "bottom" can be replaced with "top", "right" and "left".</td>
+              </tr>
+              <tr>
+                <td>.space-none</td>
+                <td>Remove any spacing that is around an element.</td>
+              </tr>
+            </table>
+          </section>
+
+          <div class="divider"></div>
+
+          <section id="grid">
+            <h4>Grid</h4>
+            <p class="paragraph">The simple grid below is based on 5 columns. You can add "no-gutter" as a class to remove spacing between columns.</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;div class="row"&gt;<br>
+                &nbsp;&nbsp;&lt;div class="col-one-third"&gt;&lt;/div&gt;<br>
+                &nbsp;&nbsp;&lt;div class="col-one-third"&gt;&lt;/div&gt;<br>
+                &nbsp;&nbsp;&lt;div class="col-one-third"&gt;&lt;/div&gt;<br>
+                &lt;/div&gt;
+              </code>
+            </div>
+            <p class="paragraph">You can also have unequal columns.</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;div class="row"&gt;<br>
+                &nbsp;&nbsp;&lt;div class="col-two-thirds"&gt;&lt;/div&gt;<br>
+                &nbsp;&nbsp;&lt;div class="col-one-third"&gt;&lt;/div&gt;<br>
+                &lt;/div&gt;
+              </code>
+            </div>
+            <p class="paragraph">Add class .reverse-order to reverse the order of columns on tablets and mobiles.</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;div class="row"&gt;<br>
+                &nbsp;&nbsp;&lt;div class="col-one-half"&gt;&lt;/div&gt;<br>
+                &nbsp;&nbsp;&lt;div class="col-one-half"&gt;&lt;/div&gt;<br>
+                &lt;/div&gt;<br>
+                &lt;div class="row reverse-order"&gt;<br>
+                &nbsp;&nbsp;&lt;div class="col-one-half"&gt;&lt;/div&gt;<br>
+                &nbsp;&nbsp;&lt;div class="col-one-half"&gt;&lt;/div&gt;<br>
+                &lt;/div&gt;
+              </code>
+            </div>
+            <p class="paragraph">The illustration below shows above code.</p>
+            <img class="center space-bottom" src="media/reverse-order.png" srcset="media/reverse-order.png 1x, media/reverse-order@2x.png 2x" alt="Reverse Order">
+            <p class="paragraph">Add class .min-two-columns for a minimum of two columns on mobile.</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;div class="row min-two-columns"&gt;<br>
+                &nbsp;&nbsp;&lt;div class="col-one-fourth"&gt;&lt;/div&gt;<br>
+                &nbsp;&nbsp;&lt;div class="col-one-fourth"&gt;&lt;/div&gt;<br>
+                &nbsp;&nbsp;&lt;div class="col-one-fourth"&gt;&lt;/div&gt;<br>
+                &nbsp;&nbsp;&lt;div class="col-one-fourth"&gt;&lt;/div&gt;<br>
+                &lt;/div&gt;
+              </code>
+            </div>
+          </section>
+
+          <div class="divider"></div>
+
+          <section id="icons">
+            <h4>Icons</h4>
+            <p class="paragraph">The easy to use material icons by <a href="https://material.io/icons/" target="_blank">Google</a> are excellent for web projects. Based on the 8-point grid, they are preferably displayed at a multiple of 24px.</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;i class="material-icons"&gt;<span>face</span>&lt;/i&gt;
+              </code>
+            </div>
+          </section>
+
+          <div class="divider"></div>
+
+          <section id="typography">
+            <h4>Typography</h4>
+            <p class="paragraph">Listed below are all default styles for headings. Headings <b>&lt;h1&gt;</b> through <b>&lt;h6&gt;</b>, are available.</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;h1&gt;<span>Heading 1</span>&lt;/h1&gt;<br>
+                &lt;h2&gt;<span>Heading 2</span>&lt;/h2&gt;<br>
+                &lt;h3&gt;<span>Heading 3</span>&lt;/h3&gt;<br>
+                &lt;h4&gt;<span>Heading 4</span>&lt;/h4&gt;<br>
+                &lt;h5&gt;<span>Heading 5</span>&lt;/h5&gt;<br>
+                &lt;h6&gt;<span>Heading 6</span>&lt;/h6&gt;
+              </code>
+            </div>
+            <div class="divider"></div>
+            <h4>Lead</h4>
+            <p class="paragraph">The main purpose of the lead style is to support headings as a subtitle.</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;p class="lead"&gt;&lt;/p&gt;
+              </code>
+            </div>
+            <div class="divider"></div>
+            <h4>Paragraph</h4>
+            <p class="paragraph">With an increased font-size and line-height, the paragraph style is great for readability.</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;p class="paragraph"&gt;&lt;/p&gt;
+              </code>
+            </div>
+            <div class="divider"></div>
+            <h4>Lists</h4>
+            <p class="paragraph">Below is the code for unordered lists.</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;ul&gt;<br>
+                &nbsp;&lt;li&gt;<span>List item one.</span>&lt;/li&gt;<br>
+                &nbsp;&lt;li&gt;<span>List item two.</span>&lt;/li&gt;<br>
+                &nbsp;&lt;li&gt;<span>List item three.</span>&lt;/li&gt;<br>
+                &lt;/ul&gt;
+              </code>
+            </div>
+            <p class="paragraph">Below is the code for ordered lists.</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;ol&gt;<br>
+                &nbsp;&lt;li&gt;<span>List item one.</span>&lt;/li&gt;<br>
+                &nbsp;&lt;li&gt;<span>List item two.</span>&lt;/li&gt;<br>
+                &nbsp;&lt;li&gt;<span>List item three.</span>&lt;/li&gt;<br>
+                &lt;/ol&gt;
+              </code>
+            </div>
+            <p class="paragraph">You can also add class "inline" to make horizontal lists.</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;ul class="inline"&gt;<br>
+                &nbsp;&lt;li&gt;&lt;a href="#"&gt;<span>List item one.</span>&lt;/a&gt;&lt;/li&gt;<br>
+                &nbsp;&lt;li&gt;&lt;a href="#"&gt;<span>List item two.</span>&lt;/a&gt;&lt;/li&gt;<br>
+                &nbsp;&lt;li&gt;&lt;a href="#"&gt;<span>List item three.</span>&lt;/a&gt;&lt;/li&gt;<br>
+                &lt;/ul&gt;
+              </code>
+            </div>
+          </section>
+
+          <div class="divider"></div>
+
+          <section id="buttons">
+            <h4>Buttons</h4>
+            <p class="paragraph">Buttons are divided into types: primary, secondary and other states such as disabled.</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;a href="#" class="button button-primary" role="button"&gt;<span>Primary</span>&lt;/a&gt;<br>
+                &lt;a href="#" class="button button-secondary" role="button"&gt;<span>Secondary</span>&lt;/a&gt;<br>
+                &lt;a href="#" class="button button-disabled" role="button"&gt;<span>Disabled</span>&lt;/a&gt;
+              </code>
+            </div>
+            <p class="paragraph">To change the size, you can add class "button-l" for a large button. There are four pre-defined sizes: large, default, medium and small.</p>
+          </section>
+
+          <div class="divider"></div>
+
+          <section id="forms">
+            <h4>Forms</h4>
+            <p class="paragraph">Input fields are divided into types and states. Below code is a default input:</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;form&gt;<br>
+                &nbsp;&lt;div class="form-group"&gt;<br>
+                &nbsp;&nbsp;&lt;label for="name"&gt;<span>Your Name:</span>&lt;/label&gt;<br>
+                &nbsp;&nbsp;&lt;input id="name" type="text" name="name"&gt;<br>
+                &nbsp;&lt;/div&gt;<br>
+                &lt;/form&gt;
+              </code>
+            </div>
+            <p class="paragraph">Dropdown:</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;form&gt;<br>
+                &nbsp;&lt;div class="form-group"&gt;<br>
+                &nbsp;&nbsp;&lt;label for="country"&gt;<span>Country:</span>&lt;/label&gt;<br>
+                &nbsp;&nbsp;&lt;div class="select-wrapper"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&lt;select id="country" name="country"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;option selected="" disabled="" value=""&gt;Choose country…&lt;/option&gt;<br>
+                &nbsp;&nbsp;&nbsp;&lt;/select&gt;<br>
+                &nbsp;&nbsp;&lt;/div&gt;<br>
+                &nbsp;&lt;/div&gt;<br>
+                &lt;/form&gt;
+              </code>
+            </div>
+            <p class="paragraph">Input area:</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;form&gt;<br>
+                &nbsp;&lt;div class="form-group"&gt;<br>
+                &nbsp;&nbsp;&lt;label for="email"&gt;<span>Message:</span>&lt;/label&gt;<br>
+                &nbsp;&nbsp;&lt;textarea id="message" name="message"&gt;&lt;/textarea&gt;<br>
+                &nbsp;&nbsp;&lt;span class="form-help"&gt;<span>500 characters max.</span>&lt;/span&gt;<br>
+                &nbsp;&lt;/div&gt;<br>
+                &lt;/form&gt;
+              </code>
+            </div>
+            <p class="paragraph">Switch:</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;form&gt;<br>
+                &nbsp;&lt;div class="form-group"&gt;<br>
+                &nbsp;&nbsp;&lt;label&gt;<span>Switch:</span>&lt;/label&gt;<br>
+                &nbsp;&nbsp;&lt;input id="s1" class="switch" type="checkbox" checked&gt;<br>
+                &nbsp;&nbsp;&lt;label for="s1" class="switch"&gt;&lt;/label&gt;<br>
+                &nbsp;&lt;/div&gt;<br>
+                &lt;/form&gt;
+              </code>
+            </div>
+            <p class="paragraph">Checkboxes:</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;form&gt;<br>
+                &nbsp;&lt;div class="form-group"&gt;<br>
+                &nbsp;&nbsp;&lt;label&gt;<span>Checkboxes:</span>&lt;/label&gt;<br>
+                &nbsp;&nbsp;&lt;input id="c1" type="checkbox" name="item-one"&gt;<br>
+                &nbsp;&nbsp;&lt;label for="c1" class="checkbox"&gt;Item one.&lt;/label&gt;<br>
+                &nbsp;&nbsp;&lt;input id="c2" type="checkbox" name="item-two"&gt;<br>
+                &nbsp;&nbsp;&lt;label for="c2" class="checkbox"&gt;Item two.&lt;/label&gt;<br>
+                &nbsp;&lt;/div&gt;<br>
+                &lt;/form&gt;
+              </code>
+            </div>
+            <p class="paragraph">Radio buttons:</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;form&gt;<br>
+                &nbsp;&lt;div class="form-group"&gt;<br>
+                &nbsp;&nbsp;&lt;label&gt;<span>Radio Buttons:</span>&lt;/label&gt;<br>
+                &nbsp;&nbsp;&lt;input id="r1" type="radio" name="item" checked&gt;<br>
+                &nbsp;&nbsp;&lt;label for="r1" class="radio"&gt;Item one.&lt;/label&gt;<br>
+                &nbsp;&nbsp;&lt;input id="r2" type="radio" name="item"&gt;<br>
+                &nbsp;&nbsp;&lt;label for="r2" class="radio"&gt;Item two.&lt;/label&gt;<br>
+                &nbsp;&lt;/div&gt;<br>
+                &lt;/form&gt;
+              </code>
+            </div>
+          </section>
+
+          <div class="divider"></div>
+
+          <section id="alerts">
+            <h4>Alerts</h4>
+            <p class="paragraph">Use alerts to give users quick feedback on performed tasks.</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;div class="alert alert-success" role="alert"&gt;<span>Great! This is awesome.</span>&lt;/div&gt;
+              </code>
+            </div>
+            <table>
+              <tr>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>.alert-default</td>
+                <td>Neutral and default notification.</td>
+              </tr>
+              <tr>
+                <td>.alert-error</td>
+                <td>Displays an error message.</td>
+              </tr>
+              <tr>
+                <td>.alert-success</td>
+                <td>Displays a success message.</td>
+              </tr>
+              <tr>
+                <td>.alert-warning</td>
+                <td>Displays a warning.</td>
+              </tr>
+            </table>
+          </section>
+
+          <div class="divider"></div>
+
+          <section id="tables">
+            <h4>Tables</h4>
+            <p class="paragraph">Built with headers and rows, a table is useful to display many items or content with measurable data.</p>
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Modified</th>
+                <th>Size</th>
+              </tr>
+              <tr>
+                <td>Documentation</td>
+                <td>Today</td>
+                <td>12.7 MB</td>
+              </tr>
+              <tr>
+                <td>Style Guide</td>
+                <td>Yesterday</td>
+                <td>2.4 MB</td>
+              </tr>
+              <tr>
+                <td>Templates</td>
+                <td>Yesterday</td>
+                <td>4.5 MB</td>
+              </tr>
+            </table>
+          </section>
+
+          <div class="divider"></div>
+
+          <section id="cards">
+            <h4>Cards</h4>
+            <p class="paragraph">A card is a great content container.</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;div class="card card-content"&gt;<br>
+                &nbsp;&nbsp;&lt;h5&gt;<span>Card Title</span>&lt;/h5&gt;<br>
+                &nbsp;&nbsp;&lt;p class="paragraph"&gt;<span>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</span>&lt;/p&gt;<br>
+                &lt;/div&gt;
+              </code>
+            </div>
+          </section>
+
+          <div class="divider"></div>
+
+          <section id="dark-mode">
+            <h4>Dark Mode</h4>
+            <p class="paragraph">If you want to turn a module dark, add class .dark to the section.</p>
+            <div class="code-markup">
+              <span class="code-header">Example:</span>
+              <code class="code-snippet">
+                &lt;section class="bg-dark dark"&gt;&lt;/section&gt;
+              </code>
+            </div>
+            <p class="paragraph">You've reached the end of the documentation. If you need any help, please send us a support ticket.</p>
+          </section>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer-main bg-light padding">
+    <p class="copyright"><span>HTML Template by </span><a href="https://uiuxassets.com/" target="_blank">UI/UX Assets</a><span> - © All rights reserved.</span></p>
+  </footer>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

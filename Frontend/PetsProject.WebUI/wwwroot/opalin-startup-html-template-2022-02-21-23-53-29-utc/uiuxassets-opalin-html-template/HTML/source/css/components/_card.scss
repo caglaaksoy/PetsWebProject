@@ -1,0 +1,23 @@
+/* -----------------------------------------------------------------------------
+
+# Components - Card
+
+----------------------------------------------------------------------------- */
+
+.card {
+  @include rounded(0.5rem);
+  @include shadow-s;
+  background: $color-white;
+
+  &.dark {
+    background: lighten($color-text, $lighten);
+  }
+}
+
+.card-content {
+  padding: 2 * $space;
+
+  @include mq("mobile") {
+    padding: 1.5 * $space;
+  }
+}
