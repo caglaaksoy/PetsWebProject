@@ -1,0 +1,71 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="zxx">
+@await Html.PartialAsync("/Views/MemberLayout/HeadMemberPartial.cshtml")
+
+<body id="top-header">
+
+   
+
+    @await Html.PartialAsync("/Views/MemberLayout/HeaderMemberPartial.cshtml")
+
+    @RenderBody()
+    @await Component.InvokeAsync("_BannerPartial")
+
+    @await Component.InvokeAsync("_FeaturePartial") @*db*@
+
+    @await Component.InvokeAsync("_AboutPartial")
+
+    @await Component.InvokeAsync("_ServicePartial")
+
+
+
+    <section class="cta" style="background:url(https://i.hizliresim.com/jc9ia5k.jpg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="cta-content">
+                        <h2>SİZ DE BLOGLARINIZI <span>YAYINLAMAK </span> İSTER MİSİNİZ?</h2>
+                        <a href="#" class="btn btn-main">Blog Yaz<i class="ti-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @await Component.InvokeAsync("_ProductPartial") @*db*@
+
+    @await Component.InvokeAsync("_ShopProcessPartial") @*db*@
+
+    @await Component.InvokeAsync("_Cta2Partial")
+
+    <div>
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+    @await Component.InvokeAsync("_FooterPartial") @*db*@
+
+    @await Html.PartialAsync("/Views/MemberLayout/ScriptMemberPartial.cshtml")
+
+
+
+
+</body>
+</html>
