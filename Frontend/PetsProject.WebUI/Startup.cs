@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PetsProject.DataAccessLayer.Concrete;
 using PetsProject.EntityLayer.Concrete;
+using PetsProject.WebUI.Models.Register;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace PetsProject.WebUI
         {
             //Identity kullanabilmek için 
             services.AddDbContext<Context>();
-            services.AddIdentity<AppUser , AppRole>().AddEntityFrameworkStores<Context>();
+            services.AddIdentity<AppUser , AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
 
 
             services.AddHttpClient();

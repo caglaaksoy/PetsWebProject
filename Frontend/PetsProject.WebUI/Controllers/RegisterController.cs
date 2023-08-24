@@ -6,6 +6,7 @@ using PetsProject.WebUI.Dtos.RegisterDto;
 using System.Net.Http;
 using System;
 using System.Threading.Tasks;
+using PetsProject.WebUI.Models.Register;
 
 namespace PetsProject.WebUI.Controllers
 {
@@ -27,23 +28,31 @@ namespace PetsProject.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(CreateNewUserDto createNewUserDto)
         {
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
-            var appUser = new AppUser()
+
+            AppUser appUser = new AppUser()
             {
                 Name = createNewUserDto.Name,
                 Email = createNewUserDto.Mail,
                 Surname = createNewUserDto.Surname,
                 UserName = createNewUserDto.Username
             };
-            var result = await _userManager.CreateAsync(appUser, createNewUserDto.Password);
-            if (result.Succeeded)
+            if (createNewUserDto.Password == createNewUserDto.ConfirmPassword)
             {
-                return RedirectToAction("Index", "Login");
+                var result = await _userManager.CreateAsync(appUser, createNewUserDto.Password);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index" , "MemberHome");
+                }
+                else
+                {
+                    foreach (var item in result.Errors)
+                    {
+                        ModelState.AddModelError("", item.Description);
+                    }
+                }
             }
-            return View();
+            return View(createNewUserDto);
         }
     }
 }
