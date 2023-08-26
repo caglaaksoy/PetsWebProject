@@ -1,54 +1,50 @@
-﻿@{
+﻿
+@{
     Layout = null;
 }
+
 <!DOCTYPE html>
 <html lang="zxx">
-@await Html.PartialAsync("/Views/MemberLayout/HeadMemberPartial.cshtml")
+@await Html.PartialAsync("/Views/MemberLayout/MemberHeadPartial.cshtml")
 
 <body id="top-header">
 
-   
-
-    @await Html.PartialAsync("/Views/MemberLayout/HeaderMemberPartial.cshtml")
-
-    @RenderBody()
-    @await Component.InvokeAsync("_BannerPartial")
-
-    @await Component.InvokeAsync("_FeaturePartial") @*db*@
-
-    @await Component.InvokeAsync("_AboutPartial")
-
-    @await Component.InvokeAsync("_ServicePartial")
-
-
-
-    <section class="cta" style="background:url(https://i.hizliresim.com/jc9ia5k.jpg)">
+    @await Html.PartialAsync("/Views/MemberLayout/MemberHeaderPartial.cshtml")
+    <section class="banner">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="cta-content">
-                        <h2>SİZ DE BLOGLARINIZI <span>YAYINLAMAK </span> İSTER MİSİNİZ?</h2>
-                        <a href="#" class="btn btn-main">Blog Yaz<i class="ti-angle-right"></i></a>
+            <div class="row align-items-center">
+                <div class="col-md-12 col-lg-8">
+                    <div class="banner-content">
+                        @RenderBody()
+
                     </div>
                 </div>
-            </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="banner-img">
+                        <img src="~/orgenik-organic-food-html5-template-2022-02-21-23-53-47-utc/orgenik-file/assets/images/banner/banner-img.png" alt="">
+                    </div>
+                </div>
+            </div> <!-- / .row -->
+        </div> <!-- / .container -->
+
+        <div class="btm-bg">
+            <img src="~/orgenik-organic-food-html5-template-2022-02-21-23-53-47-utc/orgenik-file/assets/images/banner/bg-wave.svg" alt="" class="img-fluid">
         </div>
     </section>
+    
 
+    @await Component.InvokeAsync("_FeaturePartial") @*db*@
+    @await Html.PartialAsync("/Views/MemberLayout/MemberAboutPartial.cshtml")
+    @await Component.InvokeAsync("_ServicePartial")
+    @await Html.PartialAsync("/Views/MemberLayout/MemberCtaPartial.cshtml")
     @await Component.InvokeAsync("_ProductPartial") @*db*@
-
     @await Component.InvokeAsync("_ShopProcessPartial") @*db*@
-
-    @await Component.InvokeAsync("_Cta2Partial")
-
-
-
-
+    @await Html.PartialAsync("/Views/MemberLayout/MemberCta2Partial.cshtml")
+  
+    @await Component.InvokeAsync("_ClientLogoPartial") @*db*@
     @await Component.InvokeAsync("_FooterPartial") @*db*@
-
-    @await Html.PartialAsync("/Views/MemberLayout/ScriptMemberPartial.cshtml")
-
-
+    @await Html.PartialAsync("/Views/MemberLayout/ButtonTopPartial.cshtml")
+    @await Html.PartialAsync("/Views/MemberLayout/ScriptPartial.cshtml")
 
 
 </body>

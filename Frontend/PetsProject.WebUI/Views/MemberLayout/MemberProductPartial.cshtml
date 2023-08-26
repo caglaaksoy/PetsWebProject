@@ -1,0 +1,50 @@
+﻿@model List<ResultProductDto>
+<section class="about section-padding">
+    <div class="container">
+
+
+
+        <div class="row align-items-center">
+            <div class="col-lg-5 col-md-12">
+                <div class="about-img2">
+                    <img src="https://i.hizliresim.com/25jq15h.jfif" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+
+                <div class="about-content">
+
+                    <div class="section-heading text-left mb-3">
+                        <h4 class="subheading">ürünlerimiz</h4>
+                        <span class="subtitle">Mamalarımız</span>
+                        <h2><span>Evcil dostlarımız için en kaliteli ve besleyici mamalar</span></h2>
+                    </div>
+                    @foreach (var item in Model)
+                    {
+                        <div class="process-wrap">
+                            <div class="process-item">
+                                <div class="process-icon">
+                                    <i class="ti-check"></i>
+                                </div>
+                                <div class="process-text">
+                                    <h5>@item.Title1</h5>
+                                    <p>@item.Explanation</p>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    }
+                    <a href="/Service/Index/" class="btn btn-main2">Mamalarımız<i class="ti-angle-right"></i></a>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+

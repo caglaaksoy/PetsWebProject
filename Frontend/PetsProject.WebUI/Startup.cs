@@ -4,7 +4,11 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PetsProject.BusinessLayer.Abstract;
+using PetsProject.BusinessLayer.Concrete;
+using PetsProject.DataAccessLayer.Abstract;
 using PetsProject.DataAccessLayer.Concrete;
+using PetsProject.DataAccessLayer.EntityFramework;
 using PetsProject.EntityLayer.Concrete;
 using PetsProject.WebUI.Models.Register;
 using System;
@@ -29,7 +33,6 @@ namespace PetsProject.WebUI
             //Identity kullanabilmek için 
             services.AddDbContext<Context>();
             services.AddIdentity<AppUser , AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
-
 
             services.AddHttpClient();
             services.AddControllersWithViews();
@@ -61,6 +64,16 @@ namespace PetsProject.WebUI
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+
+            //AREA KULLANIMINDA GEÇÝLECEK KISIM
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllerRoute(
+            //      name: "areas",
+            //      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+            //    );
+            //});
         }
     }
 }

@@ -30,11 +30,11 @@ namespace PetsProject.WebUI.Controllers
                     false, false);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Default");
+                    return RedirectToAction("Index", "MemberHome");
                 }
                 else
                 {
-                    return View();
+                    return RedirectToAction("Index", "Login");
                 }
             }
             return View();

@@ -1,0 +1,15 @@
+﻿@model List<ResultClientLogoDto>
+<section class="client-logo">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="owl-carousel owl-theme clients-carousel">
+                    @foreach (var item in Model)
+                    {
+                        <div class="item"><img class="clients-thumb" src="@item.LogoPhoto" alt=""></div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

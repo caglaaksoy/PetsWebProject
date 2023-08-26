@@ -9,30 +9,79 @@ namespace PetsProject.WebUI.Controllers
             return View();
         }
 
-        public PartialViewResult HeadMemberPartial()
+        public PartialViewResult MemberHeadPartial()
         {
             return PartialView();
         }
 
-        public PartialViewResult HeaderMemberPartial()
-        {
-            return PartialView();
-        }
-        //public PartialViewResult SidebarMemberPartial()
-        //{
-        //    return PartialView();
-        //}
-
-        //public PartialViewResult FooterMemberPartial()  //FOREACH HATASI İÇİN SONRA BAK
-        //{
-        //    return PartialView();
-        //}
-
-        public PartialViewResult ScriptMemberPartial()
+        public PartialViewResult MemberHeaderPartial()
         {
             return PartialView();
         }
 
 
+        public PartialViewResult MemberBannerPartial()
+        {
+            return PartialView();
+        }
+
+        public PartialViewResult MemberFeaturePartial()
+        {
+            return PartialView();
+        }
+
+        public PartialViewResult MemberAboutPartial()
+        {
+            return PartialView();
+        }
+        public PartialViewResult MemberServicePartial()
+        {
+            return PartialView();
+        }
+
+        public PartialViewResult MemberCtaPartial()
+        {
+            return PartialView();
+        }
+
+        public PartialViewResult MemberProductPartial()
+        {
+            return PartialView();
+        }
+
+        public PartialViewResult MemberShopProcessPartial()
+        {
+            return PartialView();
+        }
+
+        public PartialViewResult MemberCta2Partial()
+        {
+            return PartialView();
+        }
+
+        public PartialViewResult MemberBlogPartial()
+        {
+            return PartialView();
+        }
+
+        public PartialViewResult MemberLogoPartial()
+        {
+            return PartialView();
+        }
+
+        public PartialViewResult FooterPartial()
+        {
+            return PartialView();
+        }
+
+        public PartialViewResult ButtonTopPartial()
+        {
+            return PartialView();
+        }
+
+        public PartialViewResult ScriptPartial()
+        {
+            return PartialView();
+        }
     }
 }

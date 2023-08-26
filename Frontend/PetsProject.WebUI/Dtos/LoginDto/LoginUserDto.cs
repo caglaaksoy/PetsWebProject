@@ -4,9 +4,9 @@ namespace PetsProject.WebUI.Dtos.LoginDto
 {
     public class LoginUserDto
     {
-        [Required(ErrorMessage = "kullanıcı adını giriniz")]
+        [Required(ErrorMessage = "Kullanıcı adını giriniz")]
         public string Username { get; set; }
-        [Required(ErrorMessage = "şifreyi giriniz")]
+        [Required(ErrorMessage = "Şifreyi giriniz")]
         public string Password { get; set; }
     }
 }
