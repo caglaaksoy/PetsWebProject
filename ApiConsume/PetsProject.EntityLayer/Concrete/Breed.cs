@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace PetsProject.EntityLayer.Concrete
 {
-    public class Owner
+    public class Breed
     {
-        public int OwnerID { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
+        public int BreedID { get; set; }
+        public string BreedName { get; set; }
+        public List<Pets> Pets { get; set; }
     }
 }

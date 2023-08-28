@@ -22,9 +22,9 @@
     <input type="text" asp-for="Gender" class="form-control" />
     <br />
 
-    <label>Pet Türü</label>
+   @* <label>Pet Türü</label>
     <input type="text" asp-for="Type" class="form-control" />
-    <br />
+    <br />*@
 
     <label>Pet DG</label>
     <input type="text" asp-for="BirthDate" class="form-control" />
@@ -34,9 +34,9 @@
     <input type="text" asp-for="RegisterDate" class="form-control" />
     <br />
 
-    <label>Pet Sahibi Seçin</label>
+   @* <label>Pet Sahibi Seçin</label>
     @Html.DropDownListFor(x => x.OwnerID, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })    
-    <br />
+    <br />*@
   
 
 

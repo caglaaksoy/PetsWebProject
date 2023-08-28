@@ -59,10 +59,10 @@ namespace PetsProject.WebUI.Controllers
                     PhotoUrl = pet.PhotoUrl,
                     Age = pet.Age,
                     Gender = pet.Gender,
-                    Type = pet.Type,
+                 //   Type = pet.Type,
                     BirthDate = pet.BirthDate,
                     RegisterDate = pet.RegisterDate,
-                    OwnerID = pet.OwnerID
+                  //  OwnerID = pet.OwnerID
                 }).ToList();
 
                 // Pass petsViewModels as the model to the view

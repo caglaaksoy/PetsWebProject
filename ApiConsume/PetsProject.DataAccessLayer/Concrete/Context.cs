@@ -31,5 +31,7 @@ namespace PetsProject.DataAccessLayer.Concrete
         public DbSet<Team> Teams { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Food> Foods { get; set; }
+        public DbSet<PetType> PetTypes { get; set; }
+        public DbSet<Breed> Breeds { get; set; }
     }
 }

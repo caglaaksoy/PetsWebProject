@@ -73,6 +73,12 @@ namespace PetsProject.WebApi
             services.AddScoped<IFoodDal, EfFoodDal>();
             services.AddScoped<IFoodService, FoodManager>();
 
+            services.AddScoped<IPetTypeDal, EfPetTypeDal>();
+            services.AddScoped<IPetTypeService, PetTypeManager>();
+
+            services.AddScoped<IBreedDal, EfBreedDal>();
+            services.AddScoped<IBreedService, BreedManager>();
+
             //api cors izinleri veriliyor
 
             services.AddCors(opt =>
