@@ -48,7 +48,7 @@
                             <div class="card-body pt-5">
                                 <a class="text-center" href="#"> <h4>HOŞGELDİNİZ</h4></a>
 
-                                <form class="mt-5 mb-5 login-input" method="post">
+                               @* <form class="mt-5 mb-5 login-input" method="post">
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Kullanıcı Adınız" asp-for="Username">
                                         <span asp-validation-for="Username" class="text-danger"> </span>
@@ -60,7 +60,21 @@
                                     </div>
                                     
                                     <a class="btn login-form__btn submit w-100"  href="/MemberHome/Index/"> <h5 style="color:#fff">Giriş Yap</h5></a>
+                                </form>*@
+                                <form class="mt-5 mb-5 login-input" method="post" action="/Account/Login">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Kullanıcı Adınız" asp-for="Username">
+                                        <span asp-validation-for="Username" class="text-danger"> </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" placeholder="Şifreniz" asp-for="Password">
+                                        <span asp-validation-for="Password" class="text-danger"> </span>
+                                    </div>
+                                    <button type="submit" class="btn login-form__btn submit w-100">
+                                        <h5 style="color:#fff">Giriş Yap</h5>
+                                    </button>
                                 </form>
+
                                 <p class="mt-5 login-form__footer">Bir hesabın yok mu? <a href="/Register/Index/" class="text-primary">Kayıt Ol</a> </p>
                             </div>
                         </div>

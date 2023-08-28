@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace PetsProject.WebUI.Controllers
 {
+   
     public class ProfileController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
@@ -41,7 +42,9 @@ namespace PetsProject.WebUI.Controllers
                         UserProfileDto userProfileDto = new UserProfileDto
                         {
                             Name = user.Name,
-                            Surname = user.Surname
+                            Surname = user.Surname,
+                            Email = user.Email,
+                            Username = user.UserName
                         };
 
                         return View(userProfileDto);
@@ -53,13 +56,14 @@ namespace PetsProject.WebUI.Controllers
                 // Hata mesajını konsola yazdır
                 Console.WriteLine(ex.Message);
             }
+            return View();
 
-            return View(new UserProfileDto() { 
+            //return View(new UserProfileDto() { 
             
-                Name= "Çağla",
-                Surname ="Aksoy"
+            //    Name= "Çağla",
+            //    Surname ="Aksoy"
                 
-            });
+            //});
 
 
             //if (User.Identity.IsAuthenticated)

@@ -39,6 +39,20 @@ namespace PetsProject.WebUI
                 .AddErrorDescriber<CustomIdentityValidator>()
                 .AddEntityFrameworkStores<Context>();
 
+
+
+            // Authentication cookie ayarlarý
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.Name = "PetsCookie"; // Cookie adýný özelleþtirin
+                options.Cookie.HttpOnly = true; // Sadece HTTP ile eriþime izin ver
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(30); // Cookie geçerlilik süresi
+                options.LoginPath = "/Login/Index"; // Kullanýcý oturum açmadýysa yönlendirilecek sayfa
+                options.AccessDeniedPath = "/AccessDenied"; // Yetkisiz eriþim durumunda yönlendirilecek sayfa
+                options.SlidingExpiration = true; // Tarayýcý açýkken sürekli güncelleme
+            });
+            
+
             services.AddHttpClient();
             services.AddControllersWithViews();
 
