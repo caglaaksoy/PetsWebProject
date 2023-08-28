@@ -14,6 +14,7 @@ using PetsProject.WebUI.Dtos.RegisterDto;
 using PetsProject.WebUI.Dtos.ServiceDto;
 using PetsProject.WebUI.Dtos.ShopProcessDto;
 using PetsProject.WebUI.Dtos.TeamDto;
+using PetsProject.WebUI.Dtos.UserDto;
 
 namespace PetsProject.WebUI.Mapping
 {
@@ -65,6 +66,8 @@ namespace PetsProject.WebUI.Mapping
             CreateMap<CreateNewUserDto, AppUser>().ReverseMap();
 
             CreateMap<LoginUserDto, AppUser>().ReverseMap();
+
+            CreateMap<UserProfileDto, AppUser>().ReverseMap();
 
 
 

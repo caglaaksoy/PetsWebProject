@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="zxx">
+@await Html.PartialAsync("/Views/MemberLayout/MemberHeadPartial.cshtml")
+
+<body id="top-header">
+
+    @await Html.PartialAsync("/Views/MemberLayout/MemberHeaderPartial.cshtml")
+    <section class="banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <br />
+                <div class="banner-content">
+                    @RenderBody()
+
+                </div>
+
+               @* <div class="col-lg-4 col-md-12">
+                    <div class="banner-img">
+                        <img src="~/orgenik-organic-food-html5-template-2022-02-21-23-53-47-utc/orgenik-file/assets/images/banner/banner-img.png" alt="">
+                    </div>
+                </div>*@
+            </div> <!-- / .row -->
+        </div> <!-- / .container -->
+
+        <div class="btm-bg">
+            <img src="~/orgenik-organic-food-html5-template-2022-02-21-23-53-47-utc/orgenik-file/assets/images/banner/bg-wave.svg" alt="" class="img-fluid">
+        </div>
+    </section>
+
+
+
+    @await Component.InvokeAsync("_FooterPartial") @*db*@
+    @await Html.PartialAsync("/Views/MemberLayout/ButtonTopPartial.cshtml")
+    @await Html.PartialAsync("/Views/MemberLayout/ScriptPartial.cshtml")
+
+
+</body>
+</html>

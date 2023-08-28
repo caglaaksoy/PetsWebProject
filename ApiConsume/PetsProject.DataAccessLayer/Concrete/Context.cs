@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PetsProject.DataAccessLayer.Concrete
 {
-    public class Context : IdentityDbContext<AppUser , AppRole , int> //int girdiğimiz key(<int>) değerlerinin nedeni :
+    public class Context : IdentityDbContext<AppUser , AppRole ,int> //int girdiğimiz key(<int>) değerlerinin nedeni :
                                                                       //identity kütüphanesinde idler string formatta geliyor ben int olmasını istiyorum.
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

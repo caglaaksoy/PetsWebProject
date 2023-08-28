@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PetsProject.EntityLayer.Concrete;
 using PetsProject.WebUI.Dtos.LoginDto;
@@ -6,27 +7,28 @@ using System.Threading.Tasks;
 
 namespace PetsProject.WebUI.Controllers
 {
-    public class LoginController : Controller
+   
+    public class AccountController : Controller
     {
-        private readonly SignInManager<AppUser> signInManager;
+        private readonly SignInManager<AppUser> _signInManager;
 
-        public LoginController(SignInManager<AppUser> signInManager)
+        public AccountController(SignInManager<AppUser> signInManager)
         {
-            this.signInManager = signInManager;
+            _signInManager = signInManager;
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(LoginUserDto loginUserDto)
+        public async Task<IActionResult> Login(LoginUserDto loginUserDto)
         {
             if (ModelState.IsValid)
             {
-                var result = await signInManager.PasswordSignInAsync(loginUserDto.Username, loginUserDto.Password,
+                var result = await _signInManager.PasswordSignInAsync(loginUserDto.Username, loginUserDto.Password,
                     false, false);
                 if (result.Succeeded)
                 {

@@ -18,5 +18,10 @@ namespace PetsProject.EntityLayer.Concrete
         public DateTime RegisterDate { get; set; }
         public int OwnerID { get; set; }
         public Owner Owner { get; set; }
+
+
+
+        public int AppUserId { get; set; } 
+        public AppUser AppUser { get; set; }
     }
 }

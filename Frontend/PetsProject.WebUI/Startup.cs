@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -15,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace PetsProject.WebUI
 {
@@ -32,10 +34,17 @@ namespace PetsProject.WebUI
         {
             //Identity kullanabilmek için 
             services.AddDbContext<Context>();
-            services.AddIdentity<AppUser , AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
+            services.AddIdentity<AppUser, AppRole>()
+                .AddEntityFrameworkStores<Context>()
+                .AddErrorDescriber<CustomIdentityValidator>()
+                .AddEntityFrameworkStores<Context>();
 
             services.AddHttpClient();
             services.AddControllersWithViews();
+
+
+            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,7 +52,7 @@ namespace PetsProject.WebUI
         {
             //if (env.IsDevelopment())
             //{
-                app.UseDeveloperExceptionPage();
+            app.UseDeveloperExceptionPage();
             //}
             //else
             //{
@@ -51,18 +60,29 @@ namespace PetsProject.WebUI
             //    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             //    app.UseHsts();
             //}
-           
-            app.UseStaticFiles();
 
+
+
+            app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseRouting();
 
             app.UseAuthorization();
+            //  app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+                endpoints.MapControllerRoute(
+        name: "profile",
+        pattern: "Profile/Index",
+        defaults: new { controller = "Profile", action = "Index" }); // Profil sayfasý rotasý
+
+
             });
 
 

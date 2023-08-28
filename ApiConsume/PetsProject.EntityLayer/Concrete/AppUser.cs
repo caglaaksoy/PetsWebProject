@@ -11,5 +11,7 @@ namespace PetsProject.EntityLayer.Concrete
     {
         public string Name { get; set; }
         public string Surname { get; set; }
+        public List<Pets> Pets { get; set; }
+        public List<Owner> Owners { get; set; }
     }
 }
