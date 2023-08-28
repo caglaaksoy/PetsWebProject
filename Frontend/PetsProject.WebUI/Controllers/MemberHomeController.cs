@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PetsProject.EntityLayer.Concrete;
+using PetsProject.WebUI.Dtos.UserDto;
+using System;
 using System.Threading.Tasks;
 
 namespace PetsProject.WebUI.Controllers
@@ -14,9 +16,31 @@ namespace PetsProject.WebUI.Controllers
         {
             _userManager = userManager;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-           
+
+            try
+            {
+                if (User.Identity.IsAuthenticated)
+                {
+                    var user = await _userManager.GetUserAsync(User);
+
+                    if (user != null)
+                    {
+                        UserProfileDto userProfileDto = new UserProfileDto
+                        {
+                            Username = user.UserName
+                        };
+
+                        return View(userProfileDto);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Hata mesajını konsola yazdır
+                Console.WriteLine(ex.Message);
+            }
             return View();
         }
     }

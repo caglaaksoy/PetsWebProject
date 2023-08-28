@@ -1,8 +1,8 @@
-﻿
+﻿@model UserProfileDto
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/MemberLayout/_MemberLayout.cshtml";
 }
 
-<h1>HOŞGELDİNİZ @ViewBag.v</h1>
+<h1>HOŞGELDİNİZ <br /> @Model.Username</h1>
 

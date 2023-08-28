@@ -1,4 +1,4 @@
-﻿@model PetsProject.WebUI.Dtos.UserDto.UserProfileDto
+﻿@model UserProfileDto
 
 @{
     ViewData["Title"] = "Index";
@@ -35,10 +35,8 @@
                                 <div class="media-body">
 
 
-                                    <h3 class="mb-0">@Model.Name</h3>
+                                    <h3 class="mb-0">@Model.Name @Model.Surname</h3>
 
-
-                                    <p class="text-muted mb-0">Surname</p>
 
 
                                 </div>
@@ -46,8 +44,8 @@
                             
                             
                             <ul class="card-profile__info">
-                                <li class="mb-1"><strong class="text-dark mr-4">Mobile</strong> <span>01793931609</span></li>
-                                <li><strong class="text-dark mr-4">Email</strong> <span>name@domain.com</span></li>
+                                <li class="mb-1"><strong class="text-dark mr-4">Kullanıcı Adı</strong> <span>@Model.Username</span></li>
+                                <li><strong class="text-dark mr-4">Email</strong> <span>@Model.Email</span></li>
                             </ul>
                         </div>
                     </div>
