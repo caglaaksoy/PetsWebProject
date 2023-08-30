@@ -42,15 +42,15 @@ namespace PetsProject.WebUI.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "MemberHome");
+                    return RedirectToAction("Login", "Account");
                 }
-                //else
-                //{
-                //    foreach (var item in result.Errors)
-                //    {
-                //        ModelState.AddModelError("", item.Description);
-                //    }
-                //}
+                else
+                {
+                    foreach (var item in result.Errors)
+                    {
+                        ModelState.AddModelError("", item.Description);
+                    }
+                }
             }
             return View(createNewUserDto);
         }

@@ -10,8 +10,8 @@ using PetsProject.DataAccessLayer.Concrete;
 namespace PetsProject.DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20230827134601_mig28")]
-    partial class mig28
+    [Migration("20230830134125_newdb")]
+    partial class newdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -251,6 +251,26 @@ namespace PetsProject.DataAccessLayer.Migrations
                     b.ToTable("Blogs");
                 });
 
+            modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Breed", b =>
+                {
+                    b.Property<int>("BreedID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("BreedName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PetTypeID")
+                        .HasColumnType("int");
+
+                    b.HasKey("BreedID");
+
+                    b.HasIndex("PetTypeID");
+
+                    b.ToTable("Breeds");
+                });
+
             modelBuilder.Entity("PetsProject.EntityLayer.Concrete.ClientLogo", b =>
                 {
                     b.Property<int>("ClientLogoID")
@@ -390,9 +410,6 @@ namespace PetsProject.DataAccessLayer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AppUserId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -401,9 +418,22 @@ namespace PetsProject.DataAccessLayer.Migrations
 
                     b.HasKey("OwnerID");
 
-                    b.HasIndex("AppUserId");
-
                     b.ToTable("Owners");
+                });
+
+            modelBuilder.Entity("PetsProject.EntityLayer.Concrete.PetType", b =>
+                {
+                    b.Property<int>("PetTypeID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("PetTypeName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PetTypeID");
+
+                    b.ToTable("PetTypes");
                 });
 
             modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Pets", b =>
@@ -422,14 +452,14 @@ namespace PetsProject.DataAccessLayer.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("BreedID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("OwnerID")
-                        .HasColumnType("int");
 
                     b.Property<string>("PhotoUrl")
                         .HasColumnType("nvarchar(max)");
@@ -437,14 +467,11 @@ namespace PetsProject.DataAccessLayer.Migrations
                     b.Property<DateTime>("RegisterDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("PetsID");
 
                     b.HasIndex("AppUserId");
 
-                    b.HasIndex("OwnerID");
+                    b.HasIndex("BreedID");
 
                     b.ToTable("Petss");
                 });
@@ -602,11 +629,15 @@ namespace PetsProject.DataAccessLayer.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Owner", b =>
+            modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Breed", b =>
                 {
-                    b.HasOne("PetsProject.EntityLayer.Concrete.AppUser", null)
-                        .WithMany("Owners")
-                        .HasForeignKey("AppUserId");
+                    b.HasOne("PetsProject.EntityLayer.Concrete.PetType", "PetType")
+                        .WithMany("Breed")
+                        .HasForeignKey("PetTypeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PetType");
                 });
 
             modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Pets", b =>
@@ -617,27 +648,30 @@ namespace PetsProject.DataAccessLayer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PetsProject.EntityLayer.Concrete.Owner", "Owner")
-                        .WithMany("Petss")
-                        .HasForeignKey("OwnerID")
+                    b.HasOne("PetsProject.EntityLayer.Concrete.Breed", "Breed")
+                        .WithMany("Pets")
+                        .HasForeignKey("BreedID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("AppUser");
 
-                    b.Navigation("Owner");
+                    b.Navigation("Breed");
                 });
 
             modelBuilder.Entity("PetsProject.EntityLayer.Concrete.AppUser", b =>
                 {
-                    b.Navigation("Owners");
-
                     b.Navigation("Pets");
                 });
 
-            modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Owner", b =>
+            modelBuilder.Entity("PetsProject.EntityLayer.Concrete.Breed", b =>
                 {
-                    b.Navigation("Petss");
+                    b.Navigation("Pets");
+                });
+
+            modelBuilder.Entity("PetsProject.EntityLayer.Concrete.PetType", b =>
+                {
+                    b.Navigation("Breed");
                 });
 #pragma warning restore 612, 618
         }

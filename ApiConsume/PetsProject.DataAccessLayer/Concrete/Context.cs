@@ -14,7 +14,7 @@ namespace PetsProject.DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-IV1U5H1\\SQLEXPRESS; initial catalog = PetsDb; " +
+            optionsBuilder.UseSqlServer("server=DESKTOP-IV1U5H1\\SQLEXPRESS; initial catalog = PetDb; " +
                 "integrated security=true");
         }
 

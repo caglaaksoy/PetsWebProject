@@ -10,6 +10,6 @@ namespace PetsProject.EntityLayer.Concrete
     {
         public int PetTypeID { get; set; }
         public string PetTypeName { get; set; }
-        public List<Pets> Pets { get; set; }
+        public List<Breed> Breed { get; set; }
     }
 }

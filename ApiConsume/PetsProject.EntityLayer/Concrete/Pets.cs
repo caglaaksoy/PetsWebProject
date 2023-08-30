@@ -18,11 +18,9 @@ namespace PetsProject.EntityLayer.Concrete
 
 
 
-        public int PetTypeID { get; set; }
-        public PetType PetType { get; set; }
-
         public int BreedID { get; set; }
         public Breed Breed { get; set; }
+
 
 
         public int AppUserId { get; set; } 

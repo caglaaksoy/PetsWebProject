@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace PetsProject.EntityLayer.Concrete
 {
@@ -10,6 +6,13 @@ namespace PetsProject.EntityLayer.Concrete
     {
         public int BreedID { get; set; }
         public string BreedName { get; set; }
+
+
+
+        public int PetTypeID { get; set; }
+        public PetType PetType { get; set;}
+
+
         public List<Pets> Pets { get; set; }
     }
 }
