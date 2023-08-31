@@ -3,52 +3,85 @@
     ViewData["Title"] = "UserAddPet";
     Layout = "~/Views/MemberEmptyLayout/_MemberEmptyLayout.cshtml";
 }
+@using (Html.BeginForm("UserAddPet", "Profile", FormMethod.Post))
+{
+    <br />
+    <br />
+    <br />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-
-
-
-<h2>Pet Ekle</h2>
-
-<form asp-action="UserAddPet" method="post">
     <div class="form-group">
-        <label for="PetTypeId">Hayvan Türü</label>
-        <select asp-for="PetTypeId" class="form-control" id="PetTypeId" name="PetTypeId">
-            <option value="">Seçiniz</option>
-            @foreach (var petType in ViewBag.PetTypes)
-            {
-                <option value="@petType.PetTypeID">@petType.PetTypeName</option>
+        @Html.LabelFor(m => m.PetTypeID, "Pet Türü")
+        @Html.DropDownListFor(m => m.PetTypeID, Model.PetTypes, "-- Pet Türü Seçin --", new { @class = "form-control", id = "typeComboBox" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.BreedID, "Pet Cinsi")
+        @Html.DropDownListFor(m => m.BreedID, Model.Breeds, "-- Pet Cinsi Seçin --", new { @class = "form-control", id = "breedComboBox" })
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, "Pet Adı")
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Gender, "Cinsiyet")
+        @Html.RadioButtonFor(m => m.Gender, "Erkek", new { @checked = "checked" }) Erkek
+        @Html.RadioButtonFor(m => m.Gender, "Dişi") Dişi
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.BirthDate, "Doğum Tarihi")
+        @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control", @type = "date" })
+    </div>
+
+    <div class="form-group">
+        <label for="PhotoUrl">Pet Fotoğrafı</label>
+        <input type="file" name="PhotoUrl" id="PhotoUrl" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-main">Kaydet</button>
+}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#petTypeDropdown').change(function () {
+            var selectedPetType = $(this).val();
+            $.ajax({
+                url: '@Url.Action("GetBreedsByPetType", "Profile")',
+                data: { PetTypeID: selectedPetType },
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    var breedComboBox = $('#breedComboBox');
+                    breedComboBox.empty();
+
+                    // JSON verisini doğrudan combobox içine ekliyoruz
+                    $.each(data, function (Index, BreedName) {
+                        var option = new Option(BreedName, BreedName);
+                        breedComboBox.append(option);
+                    });
+
+                    // İlgili cinsleri seçenek olarak ekledikten sonra bir cins seçildiğinde
+                    // formun submit işlemine izin veriyoruz
+                    breedComboBox.prop('disabled', false);
+
+                    // Cins seçildiğinde kaydet butonunu devre dışı bırakıyoruz
+                    $('button[type="submit"]').prop('disabled', true);
+                }
+            });
+        });
+
+        // Cins seçildiğinde formun submit edilmesini sağlama
+        $('#breedComboBox').change(function () {
+            var selectedBreed = $(this).val();
+            if (selectedBreed !== "") {
+                $('button[type="submit"]').prop('disabled', false);
             }
-        </select>
-        <span asp-validation-for="PetTypeId" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label for="BreedId">Hayvan Cinsi</label>
-        <select asp-for="BreedId" class="form-control" id="BreedId" name="BreedId">
-            <option value="">Seçiniz</option>
-            @foreach (var breed in ViewBag.Breeds)
-            {
-                <option value="@breed.BreedID">@breed.BreedName</option>
-            }
-        </select>
-        <span asp-validation-for="BreedId" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label for="Name">Ad</label>
-        <input asp-for="Name" class="form-control" id="Name" name="Name">
-        <span asp-validation-for="Name" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label> Cinsiyet </label> <br />
-        <input type="radio" asp-for="Gender" value="Erkek" /> Erkek
-        <input type="radio" asp-for="Gender" value="Dişi" /> Dişi
-        <span asp-validation-for="Gender" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label for="BirthDate">Doğum Tarihi</label>
-        <input type="date" asp-for="BirthDate" class="form-control" id="BirthDate" name="BirthDate">
-        <span asp-validation-for="BirthDate" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Kaydet</button>
-</form>
-
-
+        });
+    });
+</script>

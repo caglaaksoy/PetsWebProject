@@ -21,15 +21,18 @@ using System.Linq;
 
 namespace PetsProject.WebUI.Controllers
 {
+
     public class ProfileController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly Context _dbContext;
+        private readonly SignInManager<AppUser> _signInManager;
 
-        public ProfileController(UserManager<AppUser> userManager, Context dbContext)
+        public ProfileController(UserManager<AppUser> userManager, Context dbContext, SignInManager<AppUser> signInManager)
         {
             _userManager = userManager;
             _dbContext = dbContext;
+            _signInManager = signInManager;
         }
 
         public async Task<IActionResult> Index()
@@ -61,10 +64,10 @@ namespace PetsProject.WebUI.Controllers
             }
             return View();
             //return View(new UserProfileDto() { 
-            
+
             //    Name= "Çağla",
             //    Surname ="Aksoy"
-                
+
             //});
 
 
@@ -80,15 +83,27 @@ namespace PetsProject.WebUI.Controllers
         }
 
 
-
-
-
         public IActionResult UserAddPet()
         {
-            ViewBag.PetTypes = _dbContext.PetTypes.ToList();
-            ViewBag.Breeds = _dbContext.Breeds.ToList();
+            var petTypes = _dbContext.PetTypes.ToList();
+            var breeds = _dbContext.Breeds.ToList();
 
-            return View(new UserAddPetDto());
+            var petDto = new UserAddPetDto
+            {
+                PetTypes = new SelectList(petTypes, "PetTypeID", "PetTypeName"),
+                Breeds = new SelectList(breeds, "BreedID", "BreedName")
+            };
+
+            return View(petDto);
+        }
+
+
+
+        [HttpGet]
+        public IActionResult GetBreedsByPetType(int PetTypeID)
+        {
+            var breeds = _dbContext.Breeds.Where(b => b.PetTypeID == PetTypeID).Select(b => b.BreedName).ToList();
+            return Json(breeds);
         }
 
         [HttpPost]
@@ -100,13 +115,18 @@ namespace PetsProject.WebUI.Controllers
 
                 if (user != null)
                 {
+                    // Pet fotoğrafını kaydet
+                    var petPhotoFile = petDto.PhotoUrl;
+
+                    // Pet fotoğrafını veritabanına kaydet
                     var newPet = new Pets
                     {
                         Name = petDto.Name,
                         Gender = petDto.Gender,
                         BirthDate = petDto.BirthDate,
-                        ///BreedID = petDto.BreedId,
-                        AppUserId = user.Id
+                        BreedID = petDto.BreedID,
+                        AppUserId = user.Id,
+                        PhotoUrl = petDto.PhotoUrl
                     };
 
                     _dbContext.Petss.Add(newPet);
@@ -121,9 +141,45 @@ namespace PetsProject.WebUI.Controllers
             ViewBag.Breeds = _dbContext.Breeds.ToList();
             return View(petDto);
         }
+        [HttpGet]
+        public IActionResult UserPetList()
+        {
+            var user = _userManager.GetUserAsync(User).Result;
+
+            if (user != null)
+            {
+                var userPets = _dbContext.Petss.Where(p => p.AppUserId == user.Id).ToList();
+
+                // UserAddPetDto türünden bir IEnumerable oluştur
+                var userPetDtos = userPets.Select(p => new UserAddPetDto
+                {
+                    Name = p.Name,
+                    Gender = p.Gender,
+                    BirthDate = p.BirthDate,
+                    BreedID = p.BreedID,
+                    PhotoUrl = $"~/uploads/{p.PhotoUrl}"
+                });
+
+                return View(userPetDtos);
+            }
+
+            return View();
+        }
+        
 
 
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync(); // SignInManager'ı kullanarak çıkış yap
+            return RedirectToAction("Index", "Default");
+        }
 
     }
+
+
 }
+
+
+
 

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<UserAddPetDto>
+@{
+    ViewData["Title"] = "UserPetList";
+    Layout = "~/Views/MemberEmptyLayout/_MemberEmptyLayout.cshtml";
+}
+
+
+
+
+<h1> Petlerim</h1>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Pet Adı</th>
+            <th>Cinsiyet</th>
+            <th>Doğum Tarihi</th>
+            <th>Fotoğraf</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pet in Model)
+        {
+            <tr>
+                <td>@pet.Name</td>
+                <td>@pet.Gender</td>
+                <td>@pet.BirthDate.ToShortDateString()</td>
+                <td>
+                    <img src="~/uploads/@pet.PhotoUrl" alt="Pet Fotoğrafı" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div class="card-body">
+    @foreach (var pet in Model)
+    {
+        <div class="media align-items-center mb-4">
+            <img class="mr-3" src="~/uploads/@pet.PhotoUrl" width="80" height="80" alt="">
+            <div class="media-body">
+
+                <h3 class="mb-0">@pet.Name </h3>
+
+            </div>
+        </div>
+
+
+        <ul class="card-profile__info">
+
+            <li><strong class="text-dark mr-4">Doğum Tarihi</strong> <span>@pet.BirthDate.ToShortDateString()</span></li>
+        </ul>
+
+    }
+
+
+
+
+
+</div>
