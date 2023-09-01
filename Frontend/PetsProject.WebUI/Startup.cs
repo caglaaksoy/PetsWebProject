@@ -61,7 +61,7 @@ namespace PetsProject.WebUI
             //    app.UseHsts();
             //}
 
-
+            app.UseStaticFiles();//dosyalar için
 
             app.UseStaticFiles();
             app.UseAuthentication();

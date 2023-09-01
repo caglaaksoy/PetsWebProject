@@ -9,7 +9,7 @@
 
 <h1> Petlerim</h1>
 
-<table class="table table-hover">
+@*<table class="table table-hover">
     <thead>
         <tr>
             <th>Pet Adı</th>
@@ -26,12 +26,15 @@
                 <td>@pet.Gender</td>
                 <td>@pet.BirthDate.ToShortDateString()</td>
                 <td>
-                    <img src="~/uploads/@pet.PhotoUrl" alt="Pet Fotoğrafı" />
+                    
+                    <img src="~/uploads/pet-image.jpg" alt="Pet Fotoğrafı" />
+
                 </td>
             </tr>
         }
     </tbody>
 </table>
+*@
 
 
 <div class="card-body">
@@ -51,7 +54,7 @@
 
             <li><strong class="text-dark mr-4">Doğum Tarihi</strong> <span>@pet.BirthDate.ToShortDateString()</span></li>
         </ul>
-
+        <hr />
     }
 
 

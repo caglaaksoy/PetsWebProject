@@ -1,0 +1,55 @@
+﻿@model List<ResultBlogDto>
+<div class="page-wrapper">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-8">
+
+                    <div class="post-single">
+                        <div class="post-thumb">
+                            <img src="@item.BlogPhotoUrl" alt="" class="img-fluid">
+                        </div>
+
+                        <div class="single-post-content">
+                            <div class="post-meta mt-4">
+                                <span class="post-date"><i class="fa fa-calendar-alt mr-2"></i>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</span>
+                                <span><a href="#" class="post-author"><i class="fa fa-user mr-2"></i>@item.Writer</a></span>
+                            </div>
+
+                            <h4>@item.BlogTitle</h4>
+                            <p>@item.Text</p>
+
+                            @*<blockquote>
+                        Good design good business.Deliver the project wirthin time.its called professionalism. Build your site with care.
+                        <cite>- Rosalina Gong</cite>
+                        </blockquote>*@
+
+
+                        </div>
+
+
+                        <div class="blog-footer d-lg-flex align-items-center justify-content-between">
+
+
+                            <div class="post-share">
+                                <a href="#"><i class="ti-facebook"></i></a>
+                                <a href="#"><i class="ti-twitter"></i></a>
+                                <a href="#"><i class="ti-linkedin"></i></a>
+                                <a href="#"><i class="ti-pinterest"></i></a>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            }
+
+
+
+        </div>
+    </div>
+</div>
+

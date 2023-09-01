@@ -165,7 +165,7 @@ namespace PetsProject.WebUI.Controllers
 
             return View();
         }
-        
+
 
 
         [Authorize]
@@ -179,7 +179,3 @@ namespace PetsProject.WebUI.Controllers
 
 
 }
-
-
-
-

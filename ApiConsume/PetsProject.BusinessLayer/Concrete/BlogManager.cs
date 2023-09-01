@@ -30,7 +30,7 @@ namespace PetsProject.BusinessLayer.Concrete
 
         public List<Blog> TGetList()
         {
-           return _blogDal.GetList();
+            return _blogDal.GetList();
         }
 
         public void TInsert(Blog t)

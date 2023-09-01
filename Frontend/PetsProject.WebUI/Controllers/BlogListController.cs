@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using PetsProject.DataAccessLayer.Concrete;
 
 namespace PetsProject.WebUI.Controllers
 {
@@ -16,9 +18,11 @@ namespace PetsProject.WebUI.Controllers
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private string target;
+        private readonly Context _dbContext;
 
-        public BlogListController(IHttpClientFactory httpClientFactory, IConfiguration configuration)
+        public BlogListController(IHttpClientFactory httpClientFactory, IConfiguration configuration, Context dbContext)
         {
+            _dbContext = dbContext;
             _httpClientFactory = httpClientFactory;
             target = configuration["BackendTarget"];
             if (string.IsNullOrEmpty(target))
@@ -59,6 +63,37 @@ namespace PetsProject.WebUI.Controllers
             }
 
             return View();
+        }
+
+        public async Task<IActionResult> ReadAllBlog(int id)
+        {
+            
+            // Burada id parametresini kullanarak ilgili blogun verilerini çekin.
+            // Örnek olarak, _dbContext veya başka bir veritabanı bağlantısı kullanabilirsiniz.
+            var blog = _dbContext.Blogs.FirstOrDefault(b => b.BlogID == id);
+
+            // Blog verisi varsa, bu veriyi modele atayın ve view'e gönderin.
+            if (blog != null)
+            {
+                var model = new List<ResultBlogDto>
+        {
+            // Burada blog verisini ResultBlogDto'ya dönüştürerek modele ekleyin.
+            new ResultBlogDto
+            {
+                BlogID = blog.BlogID,
+                BlogTitle = blog.BlogTitle,
+                Writer = blog.Writer,
+                BlogPhotoUrl = blog.BlogPhotoUrl,
+                Text = blog.Text,
+                Date = blog.Date
+            }
+        };
+                return View(model);
+            }
+
+            // Eğer blog verisi bulunamazsa, bir hata mesajı veya yönlendirme sayfası gösterebilirsiniz.
+            return NotFound(); // Örnek olarak 404 sayfası gösterme.
+
         }
 
 

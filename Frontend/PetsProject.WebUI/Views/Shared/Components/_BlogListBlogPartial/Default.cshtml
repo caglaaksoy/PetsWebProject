@@ -15,9 +15,9 @@
                                 <span class="post-meta-date">@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</span>
                                 <span class="post-author"><i class="fa fa-user"></i>@item.Writer</span>
                             </div>
-                            <h2 class="post-title"><a href="blog-single.html">@item.BlogTitle</a></h2>
+                            <h2 class="post-title"><a href="/BlogList/ReadAllBlog/@item.BlogID/">@item.BlogTitle</a></h2>
                             <p>@(item.Text.Length > 150 ? item.Text.Substring(0, 150) + "..." : item.Text)</p>
-                            <a href="blog-single.html" class="btn btn-main2">Daha Fazla Oku <i class="fa fa-angle-right"></i></a>
+                            <a href="/BlogList/ReadAllBlog/@item.BlogID/" class="btn btn-main2">Daha Fazla Oku <i class="fa fa-angle-right"></i></a>
                         </div>
                     </article>
                 }
