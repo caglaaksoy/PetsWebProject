@@ -8,9 +8,15 @@
 
 <body id="top-header">
 
+    @if (User.Identity.IsAuthenticated)
+    {
+        @await Html.PartialAsync("/Views/MemberLayout/MemberHeaderPartial.cshtml")
+    }
+    else
+    {
+        @await Component.InvokeAsync("_ServiceHeaderPartial")
+    }
 
-
-    @await Component.InvokeAsync("_ServiceHeaderPartial")
 
     @await Component.InvokeAsync("_ServiceFoodPartial")
 

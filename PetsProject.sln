@@ -7,17 +7,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiConsume", "ApiConsume", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{CADDBD40-C865-4CC3-AB95-EF4A26A0A762}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetsProject.WebApi", "ApiConsume\PetsProject.WebApi\PetsProject.WebApi.csproj", "{F3E74A8C-137C-42FC-9800-7B595483F63D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetsProject.WebApi", "ApiConsume\PetsProject.WebApi\PetsProject.WebApi.csproj", "{F3E74A8C-137C-42FC-9800-7B595483F63D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetsProject.EntityLayer", "ApiConsume\PetsProject.EntityLayer\PetsProject.EntityLayer.csproj", "{D536C5B7-26B6-4702-904D-F9AB4AD1B860}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetsProject.EntityLayer", "ApiConsume\PetsProject.EntityLayer\PetsProject.EntityLayer.csproj", "{D536C5B7-26B6-4702-904D-F9AB4AD1B860}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetsProject.DataAccessLayer", "ApiConsume\PetsProject.DataAccessLayer\PetsProject.DataAccessLayer.csproj", "{BD27E03D-77DC-4E15-BE3B-B969C0849985}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetsProject.DataAccessLayer", "ApiConsume\PetsProject.DataAccessLayer\PetsProject.DataAccessLayer.csproj", "{BD27E03D-77DC-4E15-BE3B-B969C0849985}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetsProject.BusinessLayer", "ApiConsume\PetsProject.BusinessLayer\PetsProject.BusinessLayer.csproj", "{5F5D27E0-5383-4080-B5F3-71497641DDFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetsProject.BusinessLayer", "ApiConsume\PetsProject.BusinessLayer\PetsProject.BusinessLayer.csproj", "{5F5D27E0-5383-4080-B5F3-71497641DDFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetsProject.DtoLayer", "ApiConsume\PetsProject.DtoLayer\PetsProject.DtoLayer.csproj", "{898888E7-4CFB-414E-A6D3-DEA54E97729E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetsProject.DtoLayer", "ApiConsume\PetsProject.DtoLayer\PetsProject.DtoLayer.csproj", "{898888E7-4CFB-414E-A6D3-DEA54E97729E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetsProject.WebUI", "Frontend\PetsProject.WebUI\PetsProject.WebUI.csproj", "{C103EEF5-4B1F-4076-8637-2C0026EE317B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetsProject.WebUI", "Frontend\PetsProject.WebUI\PetsProject.WebUI.csproj", "{C103EEF5-4B1F-4076-8637-2C0026EE317B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E688447E-B5A1-434F-AFDC-B9219E8C7765}"
+	ProjectSection(SolutionItems) = preProject
+		steps.txt = steps.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

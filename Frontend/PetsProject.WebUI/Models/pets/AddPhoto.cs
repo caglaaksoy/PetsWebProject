@@ -1,22 +1,23 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using PetsProject.EntityLayer.Concrete;
 using System;
-using System.ComponentModel.DataAnnotations;
 
-namespace PetsProject.WebUI.Dtos.UserDto
+namespace PetsProject.WebUI.Models.pets
 {
-    public class UserAddPetDto
+    public class AddPhoto
     {
-
         public SelectList PetTypes { get; set; }
         public SelectList Breeds { get; set; }
 
         public int PetTypeID { get; set; }
         public int BreedID { get; set; }
-        public string PhotoUrl { get; set; }
+        public IFormFile PhotoUrl { get; set; }
         public string Name { get; set; }
         public string Gender { get; set; }
         public DateTime BirthDate { get; set; }
-        public DateTime RegisterDate { get; set; }
+
+
+
     }
 }

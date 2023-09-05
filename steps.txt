@@ -1,0 +1,5 @@
+kullanýcý blog yazabilecek.
+hayvanýn resmi gelsin
+kullanýcýya da resim eklensin
+hayvan türe göre cins getirsin.
+authorize iþlemleri tamamlansýn.

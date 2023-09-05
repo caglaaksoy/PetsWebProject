@@ -65,7 +65,7 @@ namespace PetsProject.WebUI.Controllers
             return View();
         }
 
-        public async Task<IActionResult> ReadAllBlog(int id)
+        public IActionResult ReadAllBlog(int id)
         {
             
             // Burada id parametresini kullanarak ilgili blogun verilerini çekin.

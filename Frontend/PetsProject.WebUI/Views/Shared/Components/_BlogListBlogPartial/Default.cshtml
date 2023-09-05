@@ -1,4 +1,24 @@
 ﻿@model List<ResultBlogDto>
+<section class="page-header" style="background:url(https://i.hizliresim.com/jc9ia5k.jpg)">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="block">
+                    <h1>Bloglar</h1>
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            <a href="/Default/Index/">ANA SAYFA</a>
+                        </li>
+                        <li class="list-inline-item">/</li>
+                        <li class="list-inline-item">
+                            Bloglar
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <div class="blog-page main-content-area">
     <div class="container">
         <div class="row">
@@ -60,11 +80,11 @@
                             {
                                 <li>
                                     <div class="widget-post-thumb">
-                                        <a href="#"><img src="@item.BlogPhotoUrl" alt="" class="img-fluid"></a>
+                                        <a href="/BlogList/ReadAllBlog/@item.BlogID/"><img src="@item.BlogPhotoUrl" alt="" class="img-fluid"></a>
                                     </div>
                                     <div class="widget-post-body">
                                         <span class="post-meta-date">@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</span>
-                                        <h6> <a href="#">@item.BlogTitle</a></h6>
+                                        <h6> <a href="/BlogList/ReadAllBlog/@item.BlogID/">@item.BlogTitle</a></h6>
                                     </div>
                                 </li>
                             }
@@ -88,15 +108,7 @@
                         <a href="/BlogList/Index/">Bloglar</a>
                         <a href="/Contact/Index/">Bize Ulaşın</a>
                         <a href="/About/Index/">Hakkımızda</a>
-                        <a href="#">Marketing</a>
-                        <a href="#">Tips</a>
-                        <a href="#">Tricks</a>
-                        <a href="#">Ui</a>
-                        <a href="#">Free</a>
-                        <a href="#">Wordpress</a>
-                        <a href="#">bootstrap</a>
-                        <a href="#">Tutorial</a>
-                        <a href="#">Html</a>
+                        <a href="/Service/Index/">Hizmetlerimiz</a>
                     </div>
 
                 </div>

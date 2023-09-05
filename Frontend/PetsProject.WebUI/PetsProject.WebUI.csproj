@@ -33,6 +33,7 @@
 
   <ItemGroup>
     <Folder Include="ViewComponents\NewFolder\" />
+    <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 
 </Project>

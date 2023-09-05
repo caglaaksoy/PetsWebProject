@@ -10,8 +10,15 @@
 @await Component.InvokeAsync("_HeadPartial")
 
 <body id="top-header">
-
-    @await Component.InvokeAsync("_ContactHeaderPartial")
+    @if (User.Identity.IsAuthenticated)
+    {
+        @await Html.PartialAsync("/Views/MemberLayout/MemberHeaderPartial.cshtml")
+    }
+    else
+    {
+        @await Component.InvokeAsync("_ContactHeaderPartial")
+    }
+  
 
     @await Html.PartialAsync("/Views/Contact/SendMessage.cshtml")
 

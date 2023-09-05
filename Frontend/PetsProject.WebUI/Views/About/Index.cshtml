@@ -10,7 +10,15 @@
 
 <body id="top-header">
 
-    @await Component.InvokeAsync("_AboutHeaderPartial")
+    @if (User.Identity.IsAuthenticated)
+    {
+        @await Html.PartialAsync("/Views/MemberLayout/MemberHeaderPartial.cshtml")
+    }
+    else
+    {
+        @await Component.InvokeAsync("_AboutHeaderPartial")
+    }
+    
 
     @await Component.InvokeAsync("_AboutTeamPartial")
 

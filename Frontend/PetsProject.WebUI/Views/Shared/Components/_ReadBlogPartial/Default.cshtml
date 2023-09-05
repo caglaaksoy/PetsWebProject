@@ -2,10 +2,10 @@
 <div class="page-wrapper">
     <div class="container">
         <div class="row">
-            @foreach (var item in Model)
-            {
-                <div class="col-md-8">
 
+            <div class="col-md-8">
+                @foreach (var item in Model)
+                {
                     <div class="post-single">
                         <div class="post-thumb">
                             <img src="@item.BlogPhotoUrl" alt="" class="img-fluid">
@@ -27,7 +27,20 @@
 
 
                         </div>
-
+                      @*  <div class="row align-items-center justify-content-between blog-navigation">
+                            <div class="col-lg-6 border-right">
+                                <a href="#" class="prev-post">
+                                    <span>- Önceki Blog</span>
+                                    Increase client's trust
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="#" class="next-post">
+                                    <span>- Sonraki Blog</span>
+                                    Powerful terms to grow organic traffic
+                                </a>
+                            </div>
+                        </div>*@
 
                         <div class="blog-footer d-lg-flex align-items-center justify-content-between">
 
@@ -43,9 +56,9 @@
 
 
                     </div>
+                }
+            </div>
 
-                </div>
-            }
 
 
 
